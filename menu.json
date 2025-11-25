@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Grand Margarita (Chop House Fixed)",
+        "spirit": "Tequila",
+        "description": "Our premium margarita. No herbs, just clean agave.",
+        "ingredients": [
+            "Reposado Tequila",
+            "Grand Marnier",
+            "Lime"
+        ],
+        "spec_recipe": [
+            "2oz Reposado Tequila",
+            "0.5oz Grand Marnier",
+            "1oz Fresh Lime Juice"
+        ],
+        "glassware": "Rocks",
+        "garnish": "Salt Rim & Lime Wheel",
+        "instructions": "Shake with ice, strain over fresh ice. NO BASIL.",
+        "image_path": "",
+        "is_classic": false
+    },
+    {
+        "name": "Southern Belle (Fresh)",
+        "spirit": "Vodka",
+        "description": "A refreshing raspberry vodka cooler.",
+        "ingredients": [
+            "Vodka",
+            "Fresh Raspberries",
+            "Lime"
+        ],
+        "spec_recipe": [
+            "2oz Vodka",
+            "0.75oz Lime Juice",
+            "Muddled FRESH Raspberries"
+        ],
+        "glassware": "Coupe",
+        "garnish": "3 Fresh Raspberries on pick",
+        "instructions": "Muddle berries in tin. Shake hard double strain.",
+        "image_path": "",
+        "is_classic": false
+    }
+]
