@@ -187,6 +187,25 @@
         "is_cotw": false
     },
     {
+        "name": "House Chardonnay (Kendall Jackson)",
+        "spirit": "White Wine",
+        "description": "Vintner's Reserve. California.",
+        "ingredients": [
+            "Chardonnay"
+        ],
+        "spec_recipe": [
+            "6oz Pour",
+            "9oz Pour",
+            "Bottle"
+        ],
+        "glassware": "White Wine Glass",
+        "garnish": "None",
+        "instructions": "Chilled.",
+        "image_path": "",
+        "is_classic": false,
+        "is_cotw": false
+    },
+    {
         "name": "House Cabernet (Edit Me)",
         "spirit": "Red Wine",
         "description": "Update with current house pour.",
@@ -232,11 +251,11 @@
         "name": "Passionfruit Margarita",
         "spirit": "Tequila",
         "price": 13.0,
-        "description": "A classic Margarita with a kick of passionfruit and Tajin.",
+        "description": "A classic margarita with a kick and passionfruit and Tajin. ",
         "ingredients": [
             "Casamigos Reposado Tequila",
             "Passionfruit Syrup",
-            "Lime Juice",
+            "Fresh Lime Juice",
             "Agave",
             "Cointreau",
             "Tajin",
@@ -245,7 +264,7 @@
         "spec_recipe": [
             "2 Casamigos Reposado Tequila",
             "1 Passionfruit Syrup",
-            "1 Lime Juice",
+            "1 Fresh Lime Juice",
             ".5 Agave",
             ".5 Cointreau",
             "Tajin",
@@ -253,23 +272,10 @@
         ],
         "glassware": "Pint Glass",
         "garnish": "Dried Lime Wheel",
-        "instructions": "Wet the top 1/3 of the glass exterior on one side with a lime wedge. Roll firmly in Taj\u00edn to coat the side of the glass heavily. Add the syrup, lime juice, agave, Cointreau, then the Tequila to a mixing glass. Fill your drink glass and your mixing glass with ice.\nShake the margarita for 5-6 seconds and then pour into drink glass.\nGarnish with a dried lime wheel.",
-        "image_path": "images/passionfruit_margarita_1764176711.jpg",
+        "instructions": "Moisten the pint glass rim with a lime wedge or agave nectar, then gently roll the outside edge of the rim into a shallow plate of Taj\u00edn mix until evenly coated.\nAdd the syrup, fresh lime juice, agave, Cointreau, then your tequila to a shaker tin and add a scoop of ice.  Also fill pint glass with ice.  Shake for 5-7 seconds then strain into pint glass .  \nAdd dried lime wheel for garnish. ",
+        "image_path": "images/passionfruit_margarita_1764183587.jpg",
         "is_classic": false,
-        "is_cotw": true
-    },
-    {
-        "name": "Draft Miller Lite",
-        "spirit": "Beer",
-        "price": 0.0,
-        "description": "",
-        "ingredients": [],
-        "spec_recipe": [],
-        "glassware": "",
-        "garnish": "",
-        "instructions": "",
-        "image_path": "",
-        "is_classic": false,
-        "is_cotw": false
+        "is_cotw": true,
+        "is_craft": false
     }
 ]
