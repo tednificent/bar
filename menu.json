@@ -1,8 +1,34 @@
 [
     {
-        "name": "Grand Margarita (Fixed)",
+        "name": "Passionfruit Margarita",
         "spirit": "Tequila",
-        "description": "Patron Silver, Grand Marnier, Cointreau, agave nectar, orange and lime juices. NO BASIL.",
+        "description": "A classic Margarita with a kick of passionfruit and Tajin.",
+        "ingredients": [
+            "Casamigos Reposado",
+            "Passionfruit Syrup",
+            "Lime Juice",
+            "Agave",
+            "Cointreau"
+        ],
+        "spec_recipe": [
+            "2oz Casamigos Reposado",
+            "1oz Passionfruit Syrup",
+            "1oz Fresh Lime Juice",
+            "0.5oz Agave Nectar",
+            "0.5oz Cointreau"
+        ],
+        "glassware": "Rocks",
+        "garnish": "Tajin Rim & Dried Lime",
+        "instructions": "Shake with ice, strain over fresh ice.",
+        "image_path": "images/passionfruit_margarita_1764182628.jpg",
+        "is_classic": false,
+        "is_cotw": true,
+        "is_craft": false
+    },
+    {
+        "name": "Grand Margarita",
+        "spirit": "Tequila",
+        "description": "Patron Silver, Grand Marnier, Cointreau, agave nectar, orange and lime juices.",
         "ingredients": [
             "Patron Silver",
             "Grand Marnier",
@@ -19,13 +45,14 @@
         ],
         "glassware": "Rocks Glass",
         "garnish": "Salt Rim & Lime Wheel",
-        "instructions": "Shake with ice, strain over fresh ice. NO BASIL.",
+        "instructions": "Shake with ice, strain over fresh ice.",
         "image_path": "",
         "is_classic": false,
-        "is_cotw": false
+        "is_cotw": false,
+        "is_craft": true
     },
     {
-        "name": "Southern Belle (Fresh)",
+        "name": "Southern Belle",
         "spirit": "Vodka",
         "description": "Absolut Raspberri, lime juice, muddled FRESH raspberries, simple syrup.",
         "ingredients": [
@@ -45,10 +72,11 @@
         "instructions": "Muddle berries in tin. Add liquids. Shake hard double strain to remove seeds.",
         "image_path": "",
         "is_classic": false,
-        "is_cotw": false
+        "is_cotw": false,
+        "is_craft": true
     },
     {
-        "name": "Pomegranate Martini (Balanced)",
+        "name": "Pomegranate Martini",
         "spirit": "Vodka",
         "description": "Grey Goose Citron, pomegranate, mango. Less sweet, more tart.",
         "ingredients": [
@@ -68,7 +96,8 @@
         "instructions": "Shake vigorously and strain.",
         "image_path": "",
         "is_classic": false,
-        "is_cotw": false
+        "is_cotw": false,
+        "is_craft": true
     },
     {
         "name": "Espresso Martini",
@@ -91,7 +120,8 @@
         "instructions": "Shake very hard to froth. Strain up.",
         "image_path": "",
         "is_classic": false,
-        "is_cotw": false
+        "is_cotw": false,
+        "is_craft": true
     },
     {
         "name": "Chop House Hurricane",
@@ -118,164 +148,798 @@
         "instructions": "Shake and strain over fresh ice.",
         "image_path": "",
         "is_classic": false,
-        "is_cotw": false
+        "is_cotw": false,
+        "is_craft": true
     },
     {
-        "name": "Chocolate Martini",
-        "spirit": "Vodka",
-        "description": "Stoli Vanil, Baileys, Chocolate Liqueur, shaved chocolate.",
-        "ingredients": [
-            "Stoli Vanil",
-            "Baileys",
-            "Chocolate Liqueur",
-            "Cream"
-        ],
+        "name": "Miller Lite (Draft)",
+        "spirit": "Beer",
+        "description": "Draft Pour",
+        "ingredients": [],
         "spec_recipe": [
-            "1.5oz Stoli Vanil",
-            "1oz Baileys",
-            "0.5oz Chocolate Liqueur",
-            "0.5oz Cream"
+            "Draft Pour"
         ],
-        "glassware": "Martini",
-        "garnish": "Shaved Chocolate",
-        "instructions": "Shake hard. Strain up.",
+        "glassware": "Pint",
         "image_path": "",
-        "is_classic": false,
-        "is_cotw": false
+        "beer_type": "Draft"
     },
     {
-        "name": "Superfruit Wildberry Lemonade",
-        "spirit": "Vodka",
-        "description": "Grey Goose Citron, wildberry puree, lemonade.",
-        "ingredients": [
-            "Grey Goose Citron",
-            "Wildberry Puree",
-            "Lemonade"
-        ],
+        "name": "Michelob Ultra (Draft)",
+        "spirit": "Beer",
+        "description": "Draft Pour",
+        "ingredients": [],
         "spec_recipe": [
-            "1.5oz Grey Goose Citron",
-            "0.5oz Berry Puree",
-            "3oz Lemonade"
+            "Draft Pour"
         ],
-        "glassware": "Tall / Collins",
-        "garnish": "Mint Sprig & Berries",
-        "instructions": "Build in glass over ice. Roll to mix.",
+        "glassware": "Pint",
         "image_path": "",
-        "is_classic": false,
-        "is_cotw": false
+        "beer_type": "Draft"
     },
     {
-        "name": "Chop House Old Fashioned",
-        "spirit": "Bourbon",
-        "description": "Bulleit Rye, Fee Brothers Orange Bitters, Luxardo cherry.",
-        "ingredients": [
-            "Bulleit Rye",
-            "Orange Bitters",
-            "Luxardo Cherry",
-            "Orange Peel"
-        ],
+        "name": "Sam Adams Winter White Ale",
+        "spirit": "Beer",
+        "description": "Seasonal Draft",
+        "ingredients": [],
         "spec_recipe": [
-            "2oz Bulleit Rye",
-            "0.25oz Simple Syrup",
-            "2 Dashes Orange Bitters"
+            "Draft Pour"
         ],
-        "glassware": "Rocks",
-        "garnish": "Luxardo Cherry & Orange Peel",
-        "instructions": "Stir until chilled. Express orange oil.",
+        "glassware": "Pint",
+        "garnish": "Orange Slice (Optional)",
         "image_path": "",
-        "is_classic": false,
-        "is_cotw": false
+        "beer_type": "Draft"
     },
     {
-        "name": "House Chardonnay (Kendall Jackson)",
-        "spirit": "White Wine",
-        "description": "Vintner's Reserve. California.",
-        "ingredients": [
-            "Chardonnay"
-        ],
+        "name": "Sweetwater IPA",
+        "spirit": "Beer",
+        "description": "Draft Pour",
+        "ingredients": [],
         "spec_recipe": [
-            "6oz Pour",
-            "9oz Pour",
+            "Draft Pour"
+        ],
+        "glassware": "Pint",
+        "image_path": "",
+        "beer_type": "Draft"
+    },
+    {
+        "name": "Angry Orchard",
+        "spirit": "Beer",
+        "description": "Hard Cider",
+        "ingredients": [],
+        "spec_recipe": [
             "Bottle"
         ],
-        "glassware": "White Wine Glass",
-        "garnish": "None",
-        "instructions": "Chilled.",
+        "glassware": "Pint / Bottle",
         "image_path": "",
-        "is_classic": false,
-        "is_cotw": false
+        "beer_type": "Bottle/Can"
     },
     {
-        "name": "House Cabernet (Edit Me)",
-        "spirit": "Red Wine",
-        "description": "Update with current house pour.",
-        "ingredients": [
-            "Cabernet Sauvignon"
-        ],
+        "name": "Blue Moon",
+        "spirit": "Beer",
+        "description": "Belgian White",
+        "ingredients": [],
         "spec_recipe": [
-            "6oz Pour",
-            "9oz Pour",
             "Bottle"
         ],
-        "glassware": "Red Wine Glass",
-        "garnish": "None",
-        "instructions": "Room Temp.",
+        "glassware": "Pint / Bottle",
+        "garnish": "Orange",
         "image_path": "",
-        "is_classic": false,
-        "is_cotw": false
+        "beer_type": "Bottle/Can"
     },
     {
-        "name": "French 75 (Classic)",
+        "name": "Corona",
+        "spirit": "Beer",
+        "description": "Mexican Lager",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Bottle",
+        "garnish": "Lime",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Corona Light",
+        "spirit": "Beer",
+        "description": "Mexican Lager",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Bottle",
+        "garnish": "Lime",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Heineken",
+        "spirit": "Beer",
+        "description": "Euro Lager",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Bottle",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Heineken Zero",
+        "spirit": "Non-Alcoholic",
+        "description": "NA Lager",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Bottle",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Lagunitas IPA",
+        "spirit": "Beer",
+        "description": "IPA",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Pint / Bottle",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Sierra Nevada Pale Ale",
+        "spirit": "Beer",
+        "description": "Pale Ale",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Pint / Bottle",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Modelo",
+        "spirit": "Beer",
+        "description": "Mexican Lager",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Bottle",
+        "garnish": "Lime",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Fat Tire",
+        "spirit": "Beer",
+        "description": "Amber Ale",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Pint / Bottle",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Budweiser",
+        "spirit": "Beer",
+        "description": "Lager",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Bottle",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Bud Light",
+        "spirit": "Beer",
+        "description": "Light Lager",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Bottle",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Coors Light",
+        "spirit": "Beer",
+        "description": "Light Lager",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Bottle",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Miller Lite (Bottle)",
+        "spirit": "Beer",
+        "description": "Light Lager",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Bottle",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Michelob Ultra (Bottle)",
+        "spirit": "Beer",
+        "description": "Light Lager",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Bottle",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Guinness",
+        "spirit": "Beer",
+        "description": "Stout (Draught Can)",
+        "ingredients": [],
+        "spec_recipe": [
+            "Can"
+        ],
+        "glassware": "Pint",
+        "instructions": "Hard Pour",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Yuengling",
+        "spirit": "Beer",
+        "description": "Lager",
+        "ingredients": [],
+        "spec_recipe": [
+            "Bottle"
+        ],
+        "glassware": "Bottle",
+        "image_path": "",
+        "beer_type": "Bottle/Can"
+    },
+    {
+        "name": "Pinnacle Vodka",
+        "spirit": "Vodka",
+        "description": "House Vodka",
+        "spec_recipe": [],
+        "is_well": true
+    },
+    {
+        "name": "Bombay Gin",
         "spirit": "Gin",
-        "description": "Hendrick's Gin, La Marca Prosecco, fresh lemon juice, simple syrup, lemon twist.",
-        "ingredients": [
-            "Hendrick's Gin",
-            "Prosecco",
-            "Lemon Juice",
-            "Simple Syrup"
-        ],
+        "description": "House Gin (Dry)",
+        "spec_recipe": [],
+        "is_well": true
+    },
+    {
+        "name": "Bacardi Rum",
+        "spirit": "Rum",
+        "description": "House Light Rum",
+        "spec_recipe": [],
+        "is_well": true
+    },
+    {
+        "name": "Jose Cuervo",
+        "spirit": "Tequila",
+        "description": "House Tequila (Gold/Especial)",
+        "spec_recipe": [],
+        "is_well": true
+    },
+    {
+        "name": "Jim Beam",
+        "spirit": "Bourbon",
+        "description": "House Bourbon",
+        "spec_recipe": [],
+        "is_well": true
+    },
+    {
+        "name": "Canadian Club",
+        "spirit": "Whiskey",
+        "description": "House Whiskey",
+        "spec_recipe": [],
+        "is_well": true
+    },
+    {
+        "name": "Salmon Creek Cabernet",
+        "spirit": "Red Wine",
+        "description": "House Cabernet. California.",
+        "price": 8.0,
         "spec_recipe": [
-            "1oz Hendrick's Gin",
-            "0.5oz Lemon Juice",
-            "0.5oz Simple Syrup",
-            "Top with Prosecco"
+            "6oz: $8",
+            "9oz: $11"
         ],
-        "glassware": "Flute",
-        "garnish": "Lemon Twist",
-        "instructions": "Shake gin, lemon, simple with ice. Strain into flute. Top with prosecco.",
-        "image_path": "",
-        "is_classic": true,
         "is_cotw": false
     },
     {
-        "name": "Passionfruit Margarita",
-        "spirit": "Tequila",
+        "name": "Salmon Creek Merlot",
+        "spirit": "Red Wine",
+        "description": "House Merlot. California.",
+        "price": 8.0,
+        "spec_recipe": [
+            "6oz: $8",
+            "9oz: $11"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "14 Hands Cabernet",
+        "spirit": "Red Wine",
+        "description": "Columbia Valley, Washington",
+        "price": 10.0,
+        "spec_recipe": [
+            "6oz: $10",
+            "9oz: $14",
+            "Bottle: $38"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Bonanza by Caymus",
+        "spirit": "Red Wine",
+        "description": "Cabernet. Napa Valley.",
+        "price": 11.0,
+        "spec_recipe": [
+            "6oz: $11",
+            "9oz: $16",
+            "Bottle: $42"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "J. Lohr Seven Oaks",
+        "spirit": "Red Wine",
+        "description": "Cabernet. Paso Robles.",
         "price": 13.0,
-        "description": "A classic margarita with a kick and passionfruit and Tajin. ",
+        "spec_recipe": [
+            "6oz: $13",
+            "9oz: $19",
+            "Bottle: $49"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Francis Coppola Claret",
+        "spirit": "Red Wine",
+        "description": "Black Label. California.",
+        "price": 15.0,
+        "spec_recipe": [
+            "6oz: $15",
+            "9oz: $22",
+            "Bottle: $58"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Quilt by Wagner Family",
+        "spirit": "Red Wine",
+        "description": "Cabernet. Napa Valley.",
+        "price": 20.0,
+        "spec_recipe": [
+            "6oz: $20",
+            "9oz: $28",
+            "Bottle: $78"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Rombauer Cabernet",
+        "spirit": "Red Wine",
+        "description": "Napa Valley. Bottle Only.",
+        "price": 99.0,
+        "spec_recipe": [
+            "Bottle: $99"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Jordan Cabernet",
+        "spirit": "Red Wine",
+        "description": "Alexander Valley. Bottle Only.",
+        "price": 110.0,
+        "spec_recipe": [
+            "Bottle: $110"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Caymus Cabernet",
+        "spirit": "Red Wine",
+        "description": "Napa Valley. Bottle Only.",
+        "price": 121.0,
+        "spec_recipe": [
+            "Bottle: $121"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Silver Oak Cabernet",
+        "spirit": "Red Wine",
+        "description": "Alexander Valley. Bottle Only.",
+        "price": 130.0,
+        "spec_recipe": [
+            "Bottle: $130"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Cigar Box Malbec",
+        "spirit": "Red Wine",
+        "description": "Mendoza, Argentina",
+        "price": 11.0,
+        "spec_recipe": [
+            "6oz: $11",
+            "9oz: $16",
+            "Bottle: $42"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Plungerhead Old Vine Zinfandel",
+        "spirit": "Red Wine",
+        "description": "Lodi",
+        "price": 12.0,
+        "spec_recipe": [
+            "6oz: $12",
+            "9oz: $17",
+            "Bottle: $46"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "The Walking Fool Red Blend",
+        "spirit": "Red Wine",
+        "description": "by Caymus-Suisan, California",
+        "price": 12.0,
+        "spec_recipe": [
+            "6oz: $12",
+            "9oz: $17",
+            "Bottle: $46"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Red Schooner Malbec",
+        "spirit": "Red Wine",
+        "description": "by Caymus, Argentina",
+        "price": 20.0,
+        "spec_recipe": [
+            "6oz: $20",
+            "9oz: $28",
+            "Bottle: $78"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Stags' Leap Petite Sirah",
+        "spirit": "Red Wine",
+        "description": "Napa Valley. Bottle Only.",
+        "price": 78.0,
+        "spec_recipe": [
+            "Bottle: $78"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "The Prisoner Red",
+        "spirit": "Red Wine",
+        "description": "Napa Valley. Bottle Only.",
+        "price": 80.0,
+        "spec_recipe": [
+            "Bottle: $80"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Ferrari-Carano Merlot",
+        "spirit": "Red Wine",
+        "description": "Sonoma",
+        "price": 14.0,
+        "spec_recipe": [
+            "6oz: $14",
+            "9oz: $20",
+            "Bottle: $54"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Duckhorn Merlot",
+        "spirit": "Red Wine",
+        "description": "Napa Valley. Bottle Only.",
+        "price": 90.0,
+        "spec_recipe": [
+            "Bottle: $90"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "The Seeker Pinot Noir",
+        "spirit": "Red Wine",
+        "description": "France",
+        "price": 12.0,
+        "spec_recipe": [
+            "6oz: $12",
+            "9oz: $17",
+            "Bottle: $46"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Meiomi Pinot Noir",
+        "spirit": "Red Wine",
+        "description": "California",
+        "price": 14.0,
+        "spec_recipe": [
+            "6oz: $14",
+            "9oz: $20",
+            "Bottle: $54"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "La Crema Pinot Noir",
+        "spirit": "Red Wine",
+        "description": "Sonoma",
+        "price": 16.0,
+        "spec_recipe": [
+            "6oz: $16",
+            "9oz: $23",
+            "Bottle: $62"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "King Estate Pinot Noir",
+        "spirit": "Red Wine",
+        "description": "Oregon",
+        "price": 18.0,
+        "spec_recipe": [
+            "6oz: $18",
+            "9oz: $26",
+            "Bottle: $70"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Belle Glos Clark & Telephone",
+        "spirit": "Red Wine",
+        "description": "Pinot Noir. Santa Maria. Bottle Only.",
+        "price": 82.0,
+        "spec_recipe": [
+            "Bottle: $82"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Salmon Creek Chardonnay",
+        "spirit": "White Wine",
+        "description": "House Chardonnay. California.",
+        "price": 8.0,
+        "spec_recipe": [
+            "6oz: $8",
+            "9oz: $11"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Salmon Creek Pinot Grigio",
+        "spirit": "White Wine",
+        "description": "House Pinot Grigio. California.",
+        "price": 8.0,
+        "spec_recipe": [
+            "6oz: $8",
+            "9oz: $11"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Kendall-Jackson Chardonnay",
+        "spirit": "White Wine",
+        "description": "Vintner's Reserve, Sonoma",
+        "price": 12.0,
+        "spec_recipe": [
+            "6oz: $12",
+            "9oz: $17",
+            "Bottle: $46"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Sonoma-Cutrer Chardonnay",
+        "spirit": "White Wine",
+        "description": "Russian River Valley",
+        "price": 15.0,
+        "spec_recipe": [
+            "6oz: $15",
+            "9oz: $22",
+            "Bottle: $58"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Rombauer Chardonnay",
+        "spirit": "White Wine",
+        "description": "Napa Valley",
+        "price": 19.0,
+        "spec_recipe": [
+            "6oz: $19",
+            "9oz: $27",
+            "Bottle: $74"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Oyster Bay Sauvignon Blanc",
+        "spirit": "White Wine",
+        "description": "Marlborough, New Zealand",
+        "price": 10.0,
+        "spec_recipe": [
+            "6oz: $10",
+            "9oz: $14",
+            "Bottle: $38"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Emmolo Sauvignon Blanc",
+        "spirit": "White Wine",
+        "description": "by Wagner Family, California",
+        "price": 11.0,
+        "spec_recipe": [
+            "6oz: $11",
+            "9oz: $16",
+            "Bottle: $42"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Placido Pinot Grigio",
+        "spirit": "White Wine",
+        "description": "Delle Venezie, Italy",
+        "price": 11.0,
+        "spec_recipe": [
+            "6oz: $11",
+            "9oz: $16",
+            "Bottle: $42"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "A to Z Pinot Gris",
+        "spirit": "White Wine",
+        "description": "Oregon",
+        "price": 12.0,
+        "spec_recipe": [
+            "6oz: $12",
+            "9oz: $17",
+            "Bottle: $46"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Beringer White Zinfandel",
+        "spirit": "White Wine",
+        "description": "California",
+        "price": 9.0,
+        "spec_recipe": [
+            "6oz: $9",
+            "9oz: $12",
+            "Bottle: $34"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Villa Pozzi Moscato",
+        "spirit": "White Wine",
+        "description": "Sicily, Italy",
+        "price": 10.0,
+        "spec_recipe": [
+            "6oz: $10",
+            "9oz: $14",
+            "Bottle: $38"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Chateau Ste. Michelle Riesling",
+        "spirit": "White Wine",
+        "description": "Columbia Valley, Washington",
+        "price": 10.0,
+        "spec_recipe": [
+            "6oz: $10",
+            "9oz: $14",
+            "Bottle: $38"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "La Crema Ros\u00e9",
+        "spirit": "White Wine",
+        "description": "of Pinot Noir, Monterey",
+        "price": 11.0,
+        "spec_recipe": [
+            "6oz: $11",
+            "9oz: $16",
+            "Bottle: $42"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "La Marca Prosecco",
+        "spirit": "Sparkling",
+        "description": "D.O.C., Italy",
+        "price": 12.0,
+        "spec_recipe": [
+            "Split: $12",
+            "Bottle: $46"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Chandon Brut Classic",
+        "spirit": "Sparkling",
+        "description": "California",
+        "price": 14.0,
+        "spec_recipe": [
+            "Split: $14",
+            "Bottle: $49"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Mo\u00ebt & Chandon Imperial",
+        "spirit": "Sparkling",
+        "description": "Brut, Champagne, France. Bottle Only.",
+        "price": 95.0,
+        "spec_recipe": [
+            "Bottle: $95"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Dom Perignon Brut",
+        "spirit": "Sparkling",
+        "description": "Champagne, France. Bottle Only.",
+        "price": 300.0,
+        "spec_recipe": [
+            "Bottle: $300"
+        ],
+        "is_cotw": false
+    },
+    {
+        "name": "Castello di Albola Chianti",
+        "spirit": "Red Wine",
+        "price": 8.0,
+        "description": "A classic expression of Tuscan Sangiovese. This elegant Chianti Classico is bright, vibrant, and medium-bodied, offering lively notes of cherry, wild berries, and a hint of exotic spice, finishing with polished, silky tannins. This Chianti Classico makes it ideal for the richness and marbling of a great steak.",
         "ingredients": [
-            "Casamigos Reposado Tequila",
-            "Passionfruit Syrup",
-            "Fresh Lime Juice",
-            "Agave",
-            "Cointreau",
-            "Tajin",
-            "Dried Lime Wheel"
+            "6oz: 8",
+            "9oz: 10",
+            "Bottle: 22"
         ],
         "spec_recipe": [
-            "2 Casamigos Reposado Tequila",
-            "1 Passionfruit Syrup",
-            "1 Fresh Lime Juice",
-            ".5 Agave",
-            ".5 Cointreau",
-            "Tajin",
-            "Dried Lime Wheel"
+            "6oz: 8",
+            "9oz: 10",
+            "Bottle: 22"
         ],
-        "glassware": "Pint Glass",
-        "garnish": "Dried Lime Wheel",
-        "instructions": "Moisten the pint glass rim with a lime wedge or agave nectar, then gently roll the outside edge of the rim into a shallow plate of Taj\u00edn mix until evenly coated.\nAdd the syrup, fresh lime juice, agave, Cointreau, then your tequila to a shaker tin and add a scoop of ice.  Also fill pint glass with ice.  Shake for 5-7 seconds then strain into pint glass .  \nAdd dried lime wheel for garnish. ",
-        "image_path": "images/passionfruit_margarita_1764183587.jpg",
+        "glassware": "",
+        "garnish": "",
+        "instructions": "",
+        "image_path": "",
         "is_classic": false,
         "is_cotw": true,
-        "is_craft": false
+        "is_craft": true,
+        "beer_type": "Bottle/Can",
+        "is_well": false
     }
 ]
