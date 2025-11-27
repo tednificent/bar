@@ -23,15 +23,12 @@ def clean_ingredient_name(line):
     return cleaned.strip()
 
 def format_price(price):
-    # FIX: Handle None or Missing values safely
     if price is None or price == 0: return ""
     try:
-        # Ensure it's treated as a float before checking is_integer
         val = float(price)
         if val.is_integer(): return f"{int(val)}"
         return f"{val:.2f}"
-    except (ValueError, TypeError):
-        return ""
+    except (ValueError, TypeError): return ""
 
 def load_menu():
     seed_data = [{"name": "Grand Margarita", "spirit": "Tequila", "description": "Seed data...", "ingredients": [], "spec_recipe": [], "glassware": "", "garnish": "", "instructions": "", "image_path": "", "is_classic": False, "is_cotw": False}]
@@ -54,14 +51,27 @@ def save_menu(menu_data):
 # --- START OF STREAMLIT APP LOGIC ---
 
 def main():
-    st.set_page_config(page_title="The Well", page_icon="🍸", layout="wide")
+    st.set_page_config(page_title="The Well", page_icon="🥃", layout="wide")
 
+    # Custom CSS for the HTML Rows
     st.markdown("""
     <style>
         .stExpander { border: 1px solid #333; border-radius: 10px; margin-bottom: 10px; }
         .stButton>button { width: 100%; border-radius: 5px; }
         h1, h2, h3 { font-family: 'Helvetica Neue', sans-serif; font-weight: 300; }
-        div[data-testid="stHorizontalBlock"] { gap: 0.5rem; }
+        
+        /* Menu Row Styling */
+        .menu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 4px 0;
+            border-bottom: 1px solid #333;
+        }
+        .menu-name { font-weight: 600; font-size: 1rem; }
+        .menu-desc { font-style: italic; color: #888; font-size: 0.9rem; margin-left: 8px; }
+        .menu-price { font-weight: 700; font-size: 1rem; white-space: nowrap; margin-left: 15px; }
+        .featured-desc { font-size: 0.85rem; color: #bbb; margin-top: 4px; display: block; }
     </style>
     """, unsafe_allow_html=True)
     
@@ -123,7 +133,7 @@ def main():
             def_name = edit_item.get('name', "")
             def_spirit = edit_item.get('spirit', "Vodka")
             if def_spirit not in spirit_options: def_spirit = "Other"
-            def_price = float(edit_item.get('price', 0.00) or 0.00) # FIX: Handle None default
+            def_price = float(edit_item.get('price', 0.00) or 0.00)
             def_desc = edit_item.get('description', "")
             def_cotw = edit_item.get('is_cotw', False)
             def_recipe = "\n".join(edit_item.get('spec_recipe', [])) if is_edit else ""
@@ -232,7 +242,7 @@ def main():
     
     # --- VIEW B: MENU DISPLAY ---
     else: 
-        st.title("The Chop House")
+        st.title("The Well")
         
         tab_featured, tab_cocktails, tab_other, tab_beer, tab_wine, tab_liquors, tab_na, tab_import = st.tabs([
             "✨ Featured Sips", "🍸 Craft Cocktails", "🍹 Other Cocktails", "🍺 Beer", "🍷 Wine", "🥃 Liquors", "🚫 Zero Proof", "🌍 Import"
@@ -240,49 +250,57 @@ def main():
 
         # --- DISPLAY FUNCTIONS ---
 
-        # 1. NEW SIMPLE ROW (For Beer/Wine/Liquor)
         def display_simple_row(drink, source_tab):
-            # Calculate Price String
+            # 1. PRICE CALCULATION
             price_str = ""
             
             # WINE LOGIC (6oz | 9oz | Btl)
-            if drink.get('spirit') in ['Red Wine', 'White Wine'] and drink.get('ingredients'):
+            if drink.get('spirit') in ['Red Wine', 'White Wine']:
+                data_source = drink.get('ingredients') if drink.get('ingredients') else drink.get('spec_recipe', [])
+                
                 p6, p9, pBtl = "-", "-", "-"
-                for line in drink['ingredients']:
+                for line in data_source:
                     val = line.split(":")[-1].strip().replace('$','')
                     if "6oz" in line: p6 = val
                     if "9oz" in line: p9 = val
                     if "Bottle" in line: pBtl = val
                 
                 if p6 != "-" or p9 != "-":
-                    price_str = f"**{p6} | {p9} | {pBtl}**"
+                    price_str = f"{p6} | {p9} | {pBtl}"
                 else:
-                    price_str = f"**{format_price(drink.get('price', 0))}**"
-            
-            # STANDARD LOGIC (Beer/Liquor)
+                    price_str = format_price(drink.get('price', 0))
             else:
-                 price_str = f"**{format_price(drink.get('price', 0))}**"
+                 price_str = format_price(drink.get('price', 0))
 
-            # LAYOUT
-            if bartender_mode:
-                c1, c2, c3 = st.columns([6, 2, 2])
-            else:
-                c1, c2 = st.columns([6, 2])
+            # 2. NAME & DESC PREP
+            icon = "⭐️ " if drink.get('is_cotw') else ""
+            name_safe = drink['name']
+            desc_safe = drink.get('description', '').replace('Bottle Only', '').strip().rstrip('.')
             
-            with c1:
-                icon = "⭐️ " if drink.get('is_cotw') else ""
-                name_str = f"**{icon}{drink['name']}**"
-                desc = drink.get('description', '').replace('Bottle Only', '').strip().rstrip('.')
+            # Hide inline description if featured (it moves to bottom)
+            inline_desc = "" if drink.get('is_cotw') else desc_safe
+
+            # 3. HTML RENDER (GUEST MODE) - Uses Flexbox for perfect spacing
+            if not bartender_mode:
+                html = f"""
+                <div class="menu-row">
+                    <div>
+                        <span class="menu-name">{icon}{name_safe}</span>
+                        <span class="menu-desc">{inline_desc}</span>
+                    </div>
+                    <div class="menu-price">{price_str}</div>
+                </div>
+                """
+                if drink.get('is_cotw') and desc_safe:
+                    html += f"<span class='featured-desc'>📝 {desc_safe}</span>"
                 
-                if drink.get('is_cotw'):
-                    st.markdown(f"{name_str}")
-                else:
-                    st.markdown(f"{name_str} _{desc}_")
+                st.markdown(html, unsafe_allow_html=True)
             
-            with c2:
-                st.markdown(f"<div style='text-align: right'>{price_str}</div>", unsafe_allow_html=True)
-            
-            if bartender_mode:
+            # 4. COLUMNS RENDER (BARTENDER MODE) - Needs columns for buttons
+            else:
+                c1, c2, c3 = st.columns([6, 2, 2])
+                with c1: st.markdown(f"**{name_safe}** _{inline_desc}_")
+                with c2: st.markdown(f"<div style='text-align: right; font-weight:bold'>{price_str}</div>", unsafe_allow_html=True)
                 with c3:
                     c_edit, c_del = st.columns(2)
                     if c_edit.button("✏️", key=f"ed_{drink['name']}_{source_tab}"):
@@ -293,13 +311,9 @@ def main():
                         menu.remove(drink)
                         save_menu(menu)
                         st.rerun()
-            
-            if drink.get('is_cotw') and desc:
-                st.caption(f"📝 {desc}")
+                st.markdown("---")
 
-            st.markdown("---") 
 
-        # 2. STANDARD CARD (For Cocktails - Keeps Photos)
         def display_drink_card(drink, source_tab):
             header = drink['name']
             if drink.get('is_cotw'): header = f"⭐️ {drink['name']}"
@@ -384,30 +398,30 @@ def main():
             whites_glass = [d for d in whites if not is_bottle_only(d)]
             whites_reserve = [d for d in whites if is_bottle_only(d)]
             
+            # --- SIDE-BY-SIDE LAYOUT (NOW WORKS WITH HTML ROWS!) ---
             c1, c2 = st.columns(2)
             with c1:
                 st.markdown("### 🍷 Reds ( 6oz | 9oz | Btl )")
                 for drink in reds_glass: display_simple_row(drink, "wine_red")
-            with c2:
-                st.markdown("### 🥂 White ( 6oz | 9oz | Btl )")
-                for drink in whites_glass: display_simple_row(drink, "wine_white")
                 
-                if sparkling:
-                    st.markdown("### Bubbles")
-                    for drink in sparkling: display_simple_row(drink, "wine_sparkling")
+                if reds_reserve:
+                    st.markdown("---")
+                    st.subheader("🍾 Red Reserve (Bottle Only)")
+                    for drink in reds_reserve: display_simple_row(drink, "red_res")
 
-            if reds_reserve or whites_reserve:
-                st.markdown("---")
-                st.header("🍾 Reserve List (Bottle Only)")
-                c3, c4 = st.columns(2)
-                with c3:
-                    if reds_reserve:
-                        st.subheader("Red Reserve")
-                        for drink in reds_reserve: display_simple_row(drink, "red_res")
-                with c4:
-                    if whites_reserve:
-                        st.subheader("White Reserve")
-                        for drink in whites_reserve: display_simple_row(drink, "white_res")
+            with c2:
+                st.markdown("### 🥂 Whites ( 6oz | 9oz | Btl )")
+                for drink in whites_glass: display_simple_row(drink, "wine_white")
+
+                if whites_reserve:
+                    st.markdown("---")
+                    st.subheader("🍾 White Reserve (Bottle Only)")
+                    for drink in whites_reserve: display_simple_row(drink, "white_res")
+
+                if sparkling:
+                    st.markdown("---")
+                    st.markdown("### 🫧 Bubbles")
+                    for drink in sparkling: display_simple_row(drink, "wine_sparkling")
         
         with tab_liquors:
             wells = [d for d in liquors if d.get('is_well')]

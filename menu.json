@@ -81,26 +81,29 @@
     {
         "name": "Pomegranate Martini",
         "spirit": "Vodka",
-        "description": "Grey Goose Citron, pomegranate, mango. Less sweet, more tart.",
+        "price": 0.0,
+        "description": "This dazzling martini marries premium vodka with the vibrant, lush flavor of pomegranate, brightened by a hint of citrus.",
         "ingredients": [
             "Grey Goose Citron",
-            "Pomegranate Juice",
-            "Mango Puree",
-            "House Sour"
+            "Pomegranate Syrup",
+            "Mango Syrup",
+            "Sweet & Sour"
         ],
         "spec_recipe": [
-            "2oz Grey Goose Citron",
-            "1oz Pomegranate Juice",
-            "0.5oz Mango Puree",
-            "0.5oz House Sour"
+            "2 Grey Goose Citron",
+            ".5 Pomegranate Syrup",
+            ".5 Mango Syrup",
+            ".25 Sweet & Sour"
         ],
         "glassware": "Martini",
-        "garnish": "Sugar Rim (Optional)",
+        "garnish": "Sugar Rim, Frozen Grapes",
         "instructions": "Shake vigorously and strain.",
-        "image_path": "",
+        "image_path": "images/pomegranate_martini_1764233177.jpg",
         "is_classic": false,
         "is_cotw": false,
-        "is_craft": true
+        "is_craft": true,
+        "beer_type": "Bottle/Can",
+        "is_well": false
     },
     {
         "name": "Espresso Martini",
