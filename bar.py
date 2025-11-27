@@ -254,8 +254,7 @@ def main():
             # 1. PRICE CALCULATION
             price_str = ""
             
-            # WINE LOGIC (6oz | 9oz | Btl)
-            if drink.get('spirit') in ['Red Wine', 'White Wine']:
+            if drink.get('spirit') in ['Red Wine', 'White Wine', 'Sparkling']:
                 data_source = drink.get('ingredients') if drink.get('ingredients') else drink.get('spec_recipe', [])
                 
                 p6, p9, pBtl = "-", "-", "-"
@@ -264,42 +263,50 @@ def main():
                     if "6oz" in line: p6 = val
                     if "9oz" in line: p9 = val
                     if "Bottle" in line: pBtl = val
+                    if "Split" in line: p6 = val
                 
-                if p6 != "-" or p9 != "-":
-                    price_str = f"{p6} | {p9} | {pBtl}"
+                if p6 != "-" or p9 != "-" or pBtl != "-":
+                    parts = []
+                    if p6 != "-": parts.append(p6)
+                    if p9 != "-": parts.append(p9)
+                    if pBtl != "-": parts.append(pBtl)
+                    price_str = " | ".join(parts)
                 else:
                     price_str = format_price(drink.get('price', 0))
             else:
                  price_str = format_price(drink.get('price', 0))
 
-            # 2. NAME & DESC PREP
-            icon = "⭐️ " if drink.get('is_cotw') else ""
-            name_safe = drink['name']
-            desc_safe = drink.get('description', '').replace('Bottle Only', '').strip().rstrip('.')
-            
-            # Hide inline description if featured (it moves to bottom)
-            inline_desc = "" if drink.get('is_cotw') else desc_safe
+            # 2. NAME CLEANING
+            raw_name = drink['name']
+            name_display = raw_name.replace('(Draft)', '').replace('(Bottle)', '').replace('IPA', '').replace('Pale Ale', '').strip()
 
-            # 3. HTML RENDER (GUEST MODE) - Uses Flexbox for perfect spacing
+            # 3. NAME & DESC PREP
+            icon = "⭐️ " if drink.get('is_cotw') else ""
+            name_str = f"**{icon}{name_display}**"
+            desc = drink.get('description', '').replace('Bottle Only', '').strip()
+            
+            inline_desc = "" if drink.get('is_cotw') else desc
+
+            # 4. HTML RENDER (GUEST MODE)
             if not bartender_mode:
                 html = f"""
                 <div class="menu-row">
                     <div>
-                        <span class="menu-name">{icon}{name_safe}</span>
+                        <span class="menu-name">{icon}{name_display}</span>
                         <span class="menu-desc">{inline_desc}</span>
                     </div>
                     <div class="menu-price">{price_str}</div>
                 </div>
                 """
-                if drink.get('is_cotw') and desc_safe:
-                    html += f"<span class='featured-desc'>📝 {desc_safe}</span>"
+                if drink.get('is_cotw') and desc:
+                    html += f"<span class='featured-desc'>📝 {desc}</span>"
                 
                 st.markdown(html, unsafe_allow_html=True)
             
-            # 4. COLUMNS RENDER (BARTENDER MODE) - Needs columns for buttons
+            # 5. COLUMNS RENDER (BARTENDER MODE)
             else:
                 c1, c2, c3 = st.columns([6, 2, 2])
-                with c1: st.markdown(f"**{name_safe}** _{inline_desc}_")
+                with c1: st.markdown(f"**{name_display}** _{inline_desc}_")
                 with c2: st.markdown(f"<div style='text-align: right; font-weight:bold'>{price_str}</div>", unsafe_allow_html=True)
                 with c3:
                     c_edit, c_del = st.columns(2)
@@ -321,14 +328,18 @@ def main():
             if drink.get('price', 0) > 0: price_display = f" - {format_price(drink.get('price'))}"
 
             with st.expander(f"**{header}**{price_display}"):
-                col_img, col_desc = st.columns([1, 2])
-                with col_img:
-                    if drink.get('image_path') and os.path.exists(drink['image_path']):
-                        st.image(drink['image_path'], width=150)
-                    else:
-                        st.markdown("📷 *No Photo*")
-
-                with col_desc:
+                
+                # --- DYNAMIC LAYOUT ---
+                has_image = drink.get('image_path') and os.path.exists(drink['image_path'])
+                
+                if has_image:
+                    c1, c2 = st.columns([1, 2])
+                    with c1: st.image(drink['image_path'], width=150)
+                    container = c2
+                else:
+                    container = st.container() # Full width if no photo
+                
+                with container:
                     st.write(drink.get('description', ''))
                     if not bartender_mode:
                         if drink.get('ingredients'): st.caption("Specs:"); st.write(", ".join(drink.get('ingredients', [])))
@@ -398,7 +409,7 @@ def main():
             whites_glass = [d for d in whites if not is_bottle_only(d)]
             whites_reserve = [d for d in whites if is_bottle_only(d)]
             
-            # --- SIDE-BY-SIDE LAYOUT (NOW WORKS WITH HTML ROWS!) ---
+            # --- SIDE-BY-SIDE LAYOUT ---
             c1, c2 = st.columns(2)
             with c1:
                 st.markdown("### 🍷 Reds ( 6oz | 9oz | Btl )")

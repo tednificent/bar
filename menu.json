@@ -21,7 +21,7 @@
         "glassware": "Rocks",
         "garnish": "Tajin Rim & Dried Lime",
         "instructions": "Shake with ice, strain over fresh ice.",
-        "image_path": "images/passionfruit_margarita_1764182628.jpg",
+        "image_path": "images/passionfruit_margarita_1764263402.jpg",
         "is_classic": false,
         "is_cotw": false,
         "is_craft": false,
@@ -292,7 +292,7 @@
         "is_cotw": false
     },
     {
-        "name": "Lagunitas IPA",
+        "name": "Lagunitas",
         "spirit": "Beer",
         "description": "IPA",
         "ingredients": [],
@@ -305,7 +305,7 @@
         "is_cotw": false
     },
     {
-        "name": "Sierra Nevada Pale Ale",
+        "name": "Sierra Nevada",
         "spirit": "Beer",
         "description": "Pale Ale",
         "ingredients": [],
