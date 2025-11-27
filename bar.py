@@ -54,7 +54,7 @@ def save_menu(menu_data):
 # --- START OF STREAMLIT APP LOGIC ---
 
 def main():
-    st.set_page_config(page_title="Digital Bar Manager", page_icon="🍸", layout="wide")
+    st.set_page_config(page_title="The Well", page_icon="🍸", layout="wide")
 
     st.markdown("""
     <style>

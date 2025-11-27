@@ -2,12 +2,13 @@
     {
         "name": "Passionfruit Margarita",
         "spirit": "Tequila",
+        "price": 0.0,
         "description": "A classic Margarita with a kick of passionfruit and Tajin.",
         "ingredients": [
             "Casamigos Reposado",
             "Passionfruit Syrup",
-            "Lime Juice",
-            "Agave",
+            "Fresh Lime Juice",
+            "Agave Nectar",
             "Cointreau"
         ],
         "spec_recipe": [
@@ -22,8 +23,10 @@
         "instructions": "Shake with ice, strain over fresh ice.",
         "image_path": "images/passionfruit_margarita_1764182628.jpg",
         "is_classic": false,
-        "is_cotw": true,
-        "is_craft": false
+        "is_cotw": false,
+        "is_craft": false,
+        "beer_type": "Bottle/Can",
+        "is_well": false
     },
     {
         "name": "Grand Margarita",
@@ -161,7 +164,8 @@
         ],
         "glassware": "Pint",
         "image_path": "",
-        "beer_type": "Draft"
+        "beer_type": "Draft",
+        "is_cotw": false
     },
     {
         "name": "Michelob Ultra (Draft)",
@@ -173,7 +177,8 @@
         ],
         "glassware": "Pint",
         "image_path": "",
-        "beer_type": "Draft"
+        "beer_type": "Draft",
+        "is_cotw": false
     },
     {
         "name": "Sam Adams Winter White Ale",
@@ -186,7 +191,8 @@
         "glassware": "Pint",
         "garnish": "Orange Slice (Optional)",
         "image_path": "",
-        "beer_type": "Draft"
+        "beer_type": "Draft",
+        "is_cotw": false
     },
     {
         "name": "Sweetwater IPA",
@@ -198,7 +204,8 @@
         ],
         "glassware": "Pint",
         "image_path": "",
-        "beer_type": "Draft"
+        "beer_type": "Draft",
+        "is_cotw": false
     },
     {
         "name": "Angry Orchard",
@@ -210,7 +217,8 @@
         ],
         "glassware": "Pint / Bottle",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Blue Moon",
@@ -223,7 +231,8 @@
         "glassware": "Pint / Bottle",
         "garnish": "Orange",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Corona",
@@ -236,7 +245,8 @@
         "glassware": "Bottle",
         "garnish": "Lime",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Corona Light",
@@ -249,7 +259,8 @@
         "glassware": "Bottle",
         "garnish": "Lime",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Heineken",
@@ -261,7 +272,8 @@
         ],
         "glassware": "Bottle",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Heineken Zero",
@@ -273,7 +285,8 @@
         ],
         "glassware": "Bottle",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Lagunitas IPA",
@@ -285,7 +298,8 @@
         ],
         "glassware": "Pint / Bottle",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Sierra Nevada Pale Ale",
@@ -297,7 +311,8 @@
         ],
         "glassware": "Pint / Bottle",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Modelo",
@@ -310,7 +325,8 @@
         "glassware": "Bottle",
         "garnish": "Lime",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Fat Tire",
@@ -322,7 +338,8 @@
         ],
         "glassware": "Pint / Bottle",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Budweiser",
@@ -334,7 +351,8 @@
         ],
         "glassware": "Bottle",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Bud Light",
@@ -346,7 +364,8 @@
         ],
         "glassware": "Bottle",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Coors Light",
@@ -358,7 +377,8 @@
         ],
         "glassware": "Bottle",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Miller Lite (Bottle)",
@@ -370,7 +390,8 @@
         ],
         "glassware": "Bottle",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Michelob Ultra (Bottle)",
@@ -382,7 +403,8 @@
         ],
         "glassware": "Bottle",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Guinness",
@@ -395,7 +417,8 @@
         "glassware": "Pint",
         "instructions": "Hard Pour",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Yuengling",
@@ -407,49 +430,56 @@
         ],
         "glassware": "Bottle",
         "image_path": "",
-        "beer_type": "Bottle/Can"
+        "beer_type": "Bottle/Can",
+        "is_cotw": false
     },
     {
         "name": "Pinnacle Vodka",
         "spirit": "Vodka",
         "description": "House Vodka",
         "spec_recipe": [],
-        "is_well": true
+        "is_well": true,
+        "is_cotw": false
     },
     {
         "name": "Bombay Gin",
         "spirit": "Gin",
         "description": "House Gin (Dry)",
         "spec_recipe": [],
-        "is_well": true
+        "is_well": true,
+        "is_cotw": false
     },
     {
         "name": "Bacardi Rum",
         "spirit": "Rum",
         "description": "House Light Rum",
         "spec_recipe": [],
-        "is_well": true
+        "is_well": true,
+        "is_cotw": false
     },
     {
         "name": "Jose Cuervo",
         "spirit": "Tequila",
         "description": "House Tequila (Gold/Especial)",
         "spec_recipe": [],
-        "is_well": true
+        "is_well": true,
+        "is_cotw": false
     },
     {
         "name": "Jim Beam",
         "spirit": "Bourbon",
         "description": "House Bourbon",
         "spec_recipe": [],
-        "is_well": true
+        "is_well": true,
+        "is_cotw": false
     },
     {
         "name": "Canadian Club",
         "spirit": "Whiskey",
         "description": "House Whiskey",
         "spec_recipe": [],
-        "is_well": true
+        "is_well": true,
+        "is_cotw": false
     },
     {
         "name": "Salmon Creek Cabernet",
@@ -939,6 +969,39 @@
         "is_classic": false,
         "is_cotw": true,
         "is_craft": true,
+        "beer_type": "Bottle/Can",
+        "is_well": false
+    },
+    {
+        "name": "Long Island Tea (LIT)",
+        "spirit": "Other",
+        "price": 0.0,
+        "description": "The classic five-spirit knockout. Delicious, deceptive, and guaranteed to make your tongue slap your brains around.",
+        "ingredients": [
+            "Vodka",
+            "Orange Liqueur",
+            "Tequila",
+            "Gin",
+            "Rum",
+            "Sour Mix",
+            "Splash Coke"
+        ],
+        "spec_recipe": [
+            ".5 Vodka",
+            ".5 Orange Liqueur",
+            ".5 Tequila",
+            ".5 Gin",
+            ".5 Rum",
+            "1 Sour Mix",
+            "Splash Coke"
+        ],
+        "glassware": "Pint Glass",
+        "garnish": "Lemon Wedge",
+        "instructions": "Add all liquors into a pint glass.  Pack glass full of ice.  Add sweet & sour mix. Flash shake with a shaker tin.  Dirty dump back into pint glass.  Top with splash of Coke.  Garnish with lemon wedge.  ",
+        "image_path": "",
+        "is_classic": false,
+        "is_cotw": true,
+        "is_craft": false,
         "beer_type": "Bottle/Can",
         "is_well": false
     }
