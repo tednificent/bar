@@ -98,7 +98,11 @@
         "glassware": "Martini",
         "garnish": "Sugar Rim, Frozen Grapes",
         "instructions": "Shake vigorously and strain.",
+<<<<<<< HEAD
         "image_path": "images/pomegranate_martini_1764233177.jpg",
+=======
+        "image_path": "images/pomegranate_martini_1764233127.jpg",
+>>>>>>> f8fc9c245a594998c14594d3eb726894fa20845a
         "is_classic": false,
         "is_cotw": false,
         "is_craft": true,
