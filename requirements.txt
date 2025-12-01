@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 streamlit
 requests
 Pillow
-=======
-streamlit
 requests
-Pillow
->>>>>>> c760796588ee76f03f2b676b3a13dda97207280b
