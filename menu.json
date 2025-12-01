@@ -130,32 +130,35 @@
         "is_craft": true
     },
     {
-        "name": "Chop House Hurricane",
+        "name": "Reasoning with Hurricane Season",
         "spirit": "Rum",
-        "description": "Appleton Rum, Bacardi Light, passionfruit, orange, lime, grenadine.",
+        "price": 0.0,
+        "description": "Hurricane season got you down? A heavy pour of rum and passion fruit to help you navigate the chaos.",
         "ingredients": [
             "Appleton Rum",
-            "Bacardi Light",
-            "Passionfruit",
+            "Bacardi Rum",
+            "Passionfruit Juice",
             "Orange Juice",
-            "Lime Juice",
+            "Rose's Lime",
             "Grenadine"
         ],
         "spec_recipe": [
-            "1oz Appleton Rum",
-            "1oz Bacardi Light",
-            "1oz Passionfruit Juice",
-            "1oz Orange Juice",
-            "0.5oz Lime Juice",
-            "0.5oz Grenadine"
+            "1 Appleton Rum",
+            "1 Bacardi Rum",
+            "2 Passionfruit Juice",
+            "1 Orange Juice",
+            ".25 Rose's Lime",
+            ".25 Grenadine"
         ],
         "glassware": "Hurricane Glass",
         "garnish": "Orange & Cherry",
-        "instructions": "Shake and strain over fresh ice.",
+        "instructions": "Add all ingredients to mixing tin and add ice.  Flash shake and strain over fresh ice.",
         "image_path": "",
         "is_classic": false,
         "is_cotw": false,
-        "is_craft": true
+        "is_craft": true,
+        "beer_type": "Bottle/Can",
+        "is_well": false
     },
     {
         "name": "Miller Lite (Draft)",
@@ -1005,6 +1008,35 @@
         "is_classic": false,
         "is_cotw": true,
         "is_craft": false,
+        "beer_type": "Bottle/Can",
+        "is_well": false
+    },
+    {
+        "name": "Chop House Old Fashioned",
+        "spirit": "Whiskey",
+        "price": 0.0,
+        "description": "Chop House's version of the original cocktail.  ",
+        "ingredients": [
+            "Bulleit Rye",
+            "Fee Brothers Orange Bitters",
+            "Simple Syrup",
+            "Luxardo Cherry",
+            "Orange Slice"
+        ],
+        "spec_recipe": [
+            "2 Bulleit Rye",
+            "Fee Brothers Orange Bitters",
+            ".25 Simple Syrup",
+            "2 Luxardo Cherry",
+            "Orange Slice"
+        ],
+        "glassware": "Rocks",
+        "garnish": "",
+        "instructions": "Take the orange slice and rub the peel around the rim of the glass, then drop the orange slice into the glass and slightly muddle.  \nAdd  2-4 dashes of bitters, the simple syrup, cherries, then the whiskey.  \nAdd ice and stir.",
+        "image_path": "",
+        "is_classic": false,
+        "is_cotw": false,
+        "is_craft": true,
         "beer_type": "Bottle/Can",
         "is_well": false
     }
