@@ -6,24 +6,28 @@
         "description": "A classic Margarita with a kick of passionfruit and Tajin.",
         "ingredients": [
             "Casamigos Reposado",
+            "Cointreau",
             "Passionfruit Syrup",
             "Fresh Lime Juice",
             "Agave Nectar",
-            "Cointreau"
+            "Tajin",
+            "Dried Lime Wheel"
         ],
         "spec_recipe": [
-            "2oz Casamigos Reposado",
-            "1oz Passionfruit Syrup",
-            "1oz Fresh Lime Juice",
-            "0.5oz Agave Nectar",
-            "0.5oz Cointreau"
+            "2 Casamigos Reposado",
+            "0.5 Cointreau",
+            "1 Passionfruit Syrup",
+            "1 Fresh Lime Juice",
+            "0.5 Agave Nectar",
+            "Tajin",
+            "Dried Lime Wheel"
         ],
-        "glassware": "Rocks",
+        "glassware": "Pint Glass",
         "garnish": "Tajin Rim & Dried Lime",
-        "instructions": "Shake with ice, strain over fresh ice.",
+        "instructions": "Prep Rim: Take a fresh lime wedge and firmly rub the cut side across the upper 2 inch of  half of the glass rim.\nRim: Immediately dip the wet glass rim straight down into a plate of Taj\u00edn seasoning to create a uniform coating. Tap gently to remove excess.\nMix & Chill: Combine all remaining liquid ingredients in a cocktail shaker. \nFill shaker 3/4 full with ice.\nShake: Perform a flash shake (brief, vigorous shake) to combine and chill the ingredients.\nServe: Strain the cocktail over fresh ice in the prepared glass.\nGarnish: Finish with a dried lime wheel placed on top of the ice.",
         "image_path": "images/passionfruit_margarita_1764183587.jpg",
         "is_classic": false,
-        "is_cotw": false,
+        "is_cotw": true,
         "is_craft": false,
         "beer_type": "Bottle/Can",
         "is_well": false
@@ -1006,7 +1010,7 @@
         "instructions": "Add all liquors into a pint glass.  Pack glass full of ice.  Add sweet & sour mix. Flash shake with a shaker tin.  Dirty dump back into pint glass.  Top with splash of Coke.  Garnish with lemon wedge.  ",
         "image_path": "",
         "is_classic": false,
-        "is_cotw": true,
+        "is_cotw": false,
         "is_craft": false,
         "beer_type": "Bottle/Can",
         "is_well": false
