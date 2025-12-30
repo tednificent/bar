@@ -1043,5 +1043,1257 @@
         "is_craft": true,
         "beer_type": "Bottle/Can",
         "is_well": false
+    },
+    {
+        "name": "Vesper",
+        "spirit": "Gin",
+        "price": "",
+        "description": "Classic Spec. Before Dinner Cocktail",
+        "ingredients": [
+            "Gin",
+            "Vodka",
+            "Lillet Blonde"
+        ],
+        "spec_recipe": [
+            "6 cl Gin",
+            "1.5 cl Vodka",
+            "0.75 cl Lillet Blonde"
+        ],
+        "glassware": "martini",
+        "garnish": "Lemon twist",
+        "instructions": "Shake and strain into a chilled cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Bacardi",
+        "spirit": "Rum",
+        "price": "",
+        "description": "Classic Spec. Before Dinner Cocktail",
+        "ingredients": [
+            "White rum",
+            "Lime juice",
+            "Syrup"
+        ],
+        "spec_recipe": [
+            "4.5 cl White rum",
+            "2 cl Lime juice",
+            "1 cl Syrup"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Shake with ice cubes. Strain into chilled cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Negroni",
+        "spirit": "Gin",
+        "price": "",
+        "description": "Classic Spec. Before Dinner Cocktail",
+        "ingredients": [
+            "Gin",
+            "Campari",
+            "Vermouth"
+        ],
+        "spec_recipe": [
+            "3 cl Gin",
+            "3 cl Campari",
+            "3 cl Vermouth"
+        ],
+        "glassware": "old-fashioned",
+        "garnish": "Half an orange slice",
+        "instructions": "Build into old-fashioned glass filled with ice. Stir gently.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Rose",
+        "spirit": "Other",
+        "price": "",
+        "description": "Classic Spec. ",
+        "ingredients": [
+            "Kirsch",
+            "Vermouth",
+            "3 dashes Strawberry syrup"
+        ],
+        "spec_recipe": [
+            "2 cl Kirsch",
+            "4 cl Vermouth",
+            "3 dashes Strawberry syrup"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Stir all ingredients with ice and strain into a cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Old Fashioned",
+        "spirit": "Whiskey",
+        "price": "",
+        "description": "Classic Spec. Before Dinner Cocktail",
+        "ingredients": [
+            "Whiskey",
+            "2 dashes Angostura Bitters",
+            "1 sugar cube",
+            "Few dashes plain water"
+        ],
+        "spec_recipe": [
+            "4.5 cl Whiskey",
+            "2 dashes Angostura Bitters",
+            "1 sugar cube",
+            "Few dashes plain water"
+        ],
+        "glassware": "old-fashioned",
+        "garnish": "Orange slice and cherry",
+        "instructions": "Place sugar cube in old-fashioned glass and saturate with bitters, add a dash of plain water. Muddle until dissolve. Fill the glass with ice cubes and add whisky.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Tuxedo",
+        "spirit": "Gin",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "Gin",
+            "Vermouth",
+            "1/2 bar spoon Maraschino",
+            "1/4 bar spoon Absinthe",
+            "3 dashes Orange Bitters"
+        ],
+        "spec_recipe": [
+            "3 cl Gin",
+            "3 cl Vermouth",
+            "1/2 bar spoon Maraschino",
+            "1/4 bar spoon Absinthe",
+            "3 dashes Orange Bitters"
+        ],
+        "glassware": "martini",
+        "garnish": "Cherry and lemon twist",
+        "instructions": "Stir all ingredients with ice and strain into cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Mojito",
+        "spirit": "Rum",
+        "price": "",
+        "description": "Classic Spec. Longdrink",
+        "ingredients": [
+            "White rum",
+            "Lime juice",
+            "6 Mint sprigs",
+            "2 teaspoons white sugar",
+            "Soda water"
+        ],
+        "spec_recipe": [
+            "4 cl White rum",
+            "3 cl Lime juice",
+            "6 Mint sprigs",
+            "2 teaspoons white sugar",
+            "Soda water"
+        ],
+        "glassware": "collins",
+        "garnish": "Mint leaves and lemon slice",
+        "instructions": "Muddle mint sprigs with sugar and lime juice. Add splash of soda water and fill glass with cracked ice. Pour rum and top with soda water. Serve with straw.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Horse's Neck",
+        "spirit": "Gin",
+        "price": "",
+        "description": "Classic Spec. Longdrink",
+        "ingredients": [
+            "Cognac",
+            "Ginger Ale",
+            "Dash of Angostura bitters (optional)"
+        ],
+        "spec_recipe": [
+            "4 cl Cognac",
+            "12 cl Ginger Ale",
+            "Dash of Angostura bitters (optional)"
+        ],
+        "glassware": "highball",
+        "garnish": "Lemon twist",
+        "instructions": "Build into highball glass with ice cubes. Stir gently. If required, add dashes of Angostura bitters.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Planter's Punch",
+        "spirit": "Rum",
+        "price": "",
+        "description": "Classic Spec. Longdrink",
+        "ingredients": [
+            "Dark rum",
+            "Orange juice",
+            "Pineapple juice",
+            "Lemon juice",
+            "Syrup",
+            "Syrup",
+            "3 to 4 dashes Angostura bitters"
+        ],
+        "spec_recipe": [
+            "4.5 cl Dark rum",
+            "3.5 cl Orange juice",
+            "3.5 cl Pineapple juice",
+            "2 cl Lemon juice",
+            "1 cl Syrup",
+            "1 cl Syrup",
+            "3 to 4 dashes Angostura bitters"
+        ],
+        "glassware": "highball",
+        "garnish": "Pineapple slice and a cherry",
+        "instructions": "Pour all ingredients, except the bitters, into shaker filled with ice. Shake. Pour into large glass, filled with ice. Add Angostura bitters, \u201con top\u201d.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Sea Breeze",
+        "spirit": "Vodka",
+        "price": "",
+        "description": "Classic Spec. Longdrink",
+        "ingredients": [
+            "Vodka",
+            "Cranberry juice",
+            "Grapefruit juice"
+        ],
+        "spec_recipe": [
+            "4 cl Vodka",
+            "12 cl Cranberry juice",
+            "3 cl Grapefruit juice"
+        ],
+        "glassware": "highball",
+        "garnish": "Lime wedge",
+        "instructions": "Build all ingredients in a rock glass filled with ice.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Pisco Sour",
+        "spirit": "Brandy",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "Pisco",
+            "Lemon juice",
+            "Syrup",
+            "1 raw egg white (small egg)"
+        ],
+        "spec_recipe": [
+            "4.5 cl Pisco",
+            "3 cl Lemon juice",
+            "2 cl Syrup",
+            "1 raw egg white (small egg)"
+        ],
+        "glassware": "old-fashioned",
+        "garnish": "",
+        "instructions": "Shake and strain into a chilled champagne flute. Dash some Angostura bitters on top.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Long Island Iced Tea",
+        "spirit": "Tequila",
+        "price": "",
+        "description": "Classic Spec. Longdrink",
+        "ingredients": [
+            "Tequila",
+            "Vodka",
+            "White rum",
+            "Triple Sec",
+            "Gin",
+            "Lemon juice",
+            "Syrup",
+            "1 dash of Cola"
+        ],
+        "spec_recipe": [
+            "1.5 cl Tequila",
+            "1.5 cl Vodka",
+            "1.5 cl White rum",
+            "1.5 cl Triple Sec",
+            "1.5 cl Gin",
+            "2.5 cl Lemon juice",
+            "3.0 cl Syrup",
+            "1 dash of Cola"
+        ],
+        "glassware": "highball",
+        "garnish": "Lemon twist",
+        "instructions": "Add all ingredients into highball glass filled with ice. Stir gently. Serve with straw.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Clover Club",
+        "spirit": "Gin",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "Gin",
+            "Syrup",
+            "Lemon juice",
+            "Few drops of Egg White"
+        ],
+        "spec_recipe": [
+            "4.5 cl Gin",
+            "1.5 cl Syrup",
+            "1.5 cl Lemon juice",
+            "Few drops of Egg White"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Shake with ice cubes. Strain into cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Angel Face",
+        "spirit": "Gin",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "Gin",
+            "Apricot brandy",
+            "Calvados"
+        ],
+        "spec_recipe": [
+            "3 cl Gin",
+            "3 cl Apricot brandy",
+            "3 cl Calvados"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Shake with ice cubes. Strain into a cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Mimosa",
+        "spirit": "Other",
+        "price": "",
+        "description": "Classic Spec. Sparkling Cocktail",
+        "ingredients": [
+            "Champagne",
+            "Orange juice"
+        ],
+        "spec_recipe": [
+            "7.5 cl Champagne",
+            "7.5 cl Orange juice"
+        ],
+        "glassware": "champagne-flute",
+        "garnish": "Optional orange twist",
+        "instructions": "Pour orange juice into flute and gently pour Champagne. Stir gently. Note: Buck's Fizz is a very similar cocktail but made of two parts champagne to one part orange juice.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Whiskey Sour",
+        "spirit": "Whiskey",
+        "price": "",
+        "description": "Classic Spec. Before Dinner Cocktail",
+        "ingredients": [
+            "Whiskey",
+            "Lemon juice",
+            "Syrup"
+        ],
+        "spec_recipe": [
+            "4.5 cl Whiskey",
+            "3.0 cl Lemon juice",
+            "1.5 cl Syrup"
+        ],
+        "glassware": "old-fashioned",
+        "garnish": "Half an orange slice and cherry",
+        "instructions": "Dash egg white (Optional: if used shake little harder to foam up the egg white). Pour all ingredients into cocktail shaker filled with ice. Shake. Strain into cocktail glass. If served \u2018On the rocks\u2019, strain ingredients into old-fashioned glass filled with ice.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Screwdriver",
+        "spirit": "Vodka",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "Vodka",
+            "Orange juice"
+        ],
+        "spec_recipe": [
+            "5 cl Vodka",
+            "10 cl Orange juice"
+        ],
+        "glassware": "highball",
+        "garnish": "Orange slice",
+        "instructions": "Build into a highball glass filled with ice. Stir gently.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Cuba Libre",
+        "spirit": "Rum",
+        "price": "",
+        "description": "Classic Spec. Longdrink",
+        "ingredients": [
+            "White rum",
+            "Cola",
+            "Lime juice"
+        ],
+        "spec_recipe": [
+            "5 cl White rum",
+            "12 cl Cola",
+            "1 cl Lime juice"
+        ],
+        "glassware": "highball",
+        "garnish": "Lime wedge",
+        "instructions": "Build all ingredients in a highball glass filled with ice.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Manhattan",
+        "spirit": "Whiskey",
+        "price": "",
+        "description": "Classic Spec. Before Dinner Cocktail",
+        "ingredients": [
+            "Whiskey",
+            "Vermouth",
+            "1 dash Angostura Bitters"
+        ],
+        "spec_recipe": [
+            "5 cl Whiskey",
+            "2 cl Vermouth",
+            "1 dash Angostura Bitters"
+        ],
+        "glassware": "martini",
+        "garnish": "Cherry",
+        "instructions": "Stir in mixing glass with ice cubes. Strain into chilled cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Porto Flip",
+        "spirit": "Brandy",
+        "price": "",
+        "description": "Classic Spec. After Dinner Cocktail",
+        "ingredients": [
+            "Cognac",
+            "Red Port",
+            "Egg yolk"
+        ],
+        "spec_recipe": [
+            "1.5 cl Cognac",
+            "4.5 cl Red Port",
+            "1 cl Egg yolk"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Shake with ice cubes. Strain into cocktail glass. Sprinkle with fresh ground nutmeg.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Gin Fizz",
+        "spirit": "Gin",
+        "price": "",
+        "description": "Classic Spec. Longdrink",
+        "ingredients": [
+            "Gin",
+            "Lemon juice",
+            "Syrup",
+            "Soda water"
+        ],
+        "spec_recipe": [
+            "4.5 cl Gin",
+            "3 cl Lemon juice",
+            "1 cl Syrup",
+            "8 cl Soda water"
+        ],
+        "glassware": "highball",
+        "garnish": "Lemon slice",
+        "instructions": "Shake all ingredients with ice cubes, except soda water. Pour into tumbler. Top with soda water.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Margarita",
+        "spirit": "Tequila",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "Tequila",
+            "Triple Sec",
+            "Lime juice"
+        ],
+        "spec_recipe": [
+            "3.5 cl Tequila",
+            "2 cl Triple Sec",
+            "1.5 cl Lime juice"
+        ],
+        "glassware": "margarita",
+        "garnish": "",
+        "instructions": "Shake with ice cubes. Strain into cocktail glass rimmed with salt (note:Fruit Margarita - blend selected fruit with the above recipe).",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "French 75",
+        "spirit": "Gin",
+        "price": "",
+        "description": "Classic Spec. Sparkling Cocktail",
+        "ingredients": [
+            "Gin",
+            "Lemon juice",
+            "2 dashes Sugar syrup",
+            "Champagne"
+        ],
+        "spec_recipe": [
+            "3 cl Gin",
+            "1.5 cl Lemon juice",
+            "2 dashes Sugar syrup",
+            "6 cl Champagne"
+        ],
+        "glassware": "champagne-tulip",
+        "garnish": "",
+        "instructions": "Shake with ice cubes, except for champagne. Strain into a champagne flute. Top up with champagne. Stir gently.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Yellow Bird",
+        "spirit": "Rum",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "White rum",
+            "Galliano",
+            "Triple Sec",
+            "Lime juice"
+        ],
+        "spec_recipe": [
+            "3 cl White rum",
+            "1.5 cl Galliano",
+            "1.5 cl Triple Sec",
+            "1.5 cl Lime juice"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Shake and strain into a chilled cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Pina Colada",
+        "spirit": "Rum",
+        "price": "",
+        "description": "Classic Spec. Longdrink",
+        "ingredients": [
+            "White rum",
+            "Pineapple juice",
+            "Coconut milk"
+        ],
+        "spec_recipe": [
+            "3 cl White rum",
+            "9 cl Pineapple juice",
+            "3 cl Coconut milk"
+        ],
+        "glassware": "hurricane",
+        "garnish": "Pineapple slice and a cherry",
+        "instructions": "Blend all the ingredients with ice in a electric blender, pour into a large goblet or Hurricane glass and serve with straws.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Aviation",
+        "spirit": "Gin",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "Gin",
+            "Cherry liqueur",
+            "Lemon juice"
+        ],
+        "spec_recipe": [
+            "4.5 cl Gin",
+            "1.5 cl Cherry liqueur",
+            "1.5 cl Lemon juice"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Shake and strain into a chilled cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Bellini",
+        "spirit": "Other",
+        "price": "",
+        "description": "Classic Spec. Sparkling Cocktail",
+        "ingredients": [
+            "Prosecco",
+            "Peach puree"
+        ],
+        "spec_recipe": [
+            "10 cl Prosecco",
+            "5 cl Peach puree"
+        ],
+        "glassware": "champagne-flute",
+        "garnish": "",
+        "instructions": "Pour peach puree into chilled glass and add sparkling wine. Stir gently. Variations: Puccini (fresh mandarin juice), Rossini (fresh strawberry puree), Tintoretto (fresh pomegranate juice)",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Grasshopper",
+        "spirit": "Other",
+        "price": "",
+        "description": "Classic Spec. After Dinner Cocktail",
+        "ingredients": [
+            "Cr\u00e9me liqueur",
+            "Cr\u00e9me liqueur",
+            "Cream"
+        ],
+        "spec_recipe": [
+            "3 cl Cr\u00e9me liqueur",
+            "3 cl Cr\u00e9me liqueur",
+            "3 cl Cream"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Shake with ice cubes. Strain into chilled cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Tequila Sunrise",
+        "spirit": "Tequila",
+        "price": "",
+        "description": "Classic Spec. Longdrink",
+        "ingredients": [
+            "Tequila",
+            "Orange juice",
+            "Syrup"
+        ],
+        "spec_recipe": [
+            "4.5 cl Tequila",
+            "9 cl Orange juice",
+            "1.5 cl Syrup"
+        ],
+        "glassware": "highball",
+        "garnish": "Orange slice and a cherry",
+        "instructions": "Build tequila and orange juice into highball with ice cubes. Add a splash of grenadine to create sunrise effect. Do not stir.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Daiquiri",
+        "spirit": "Rum",
+        "price": "",
+        "description": "Classic Spec. Before Dinner Cocktail",
+        "ingredients": [
+            "White rum",
+            "Lime juice",
+            "Syrup"
+        ],
+        "spec_recipe": [
+            "4.5 cl White rum",
+            "2.5 cl Lime juice",
+            "1.5 cl Syrup"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Shake and strain into a cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Rusty Nail",
+        "spirit": "Whiskey",
+        "price": "",
+        "description": "Classic Spec. After Dinner Cocktail",
+        "ingredients": [
+            "Whiskey",
+            "Drambuie"
+        ],
+        "spec_recipe": [
+            "4.5 cl Whiskey",
+            "2.5 cl Drambuie"
+        ],
+        "glassware": "old-fashioned",
+        "garnish": "Lemon twist",
+        "instructions": "Build into old-fashioned glass filled with ice. Stir gently.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "B52",
+        "spirit": "Other",
+        "price": "",
+        "description": "Classic Spec. After Dinner Cocktail",
+        "ingredients": [
+            "Coffee liqueur",
+            "Cream liqueur",
+            "Triple Sec"
+        ],
+        "spec_recipe": [
+            "2 cl Coffee liqueur",
+            "2 cl Cream liqueur",
+            "2 cl Triple Sec"
+        ],
+        "glassware": "shot",
+        "garnish": "",
+        "instructions": "Layer ingredients one at a time starting with Kahl\u00faa, followed by Baileys Irish Cream and top with Grand Marnier. Flame the Grand Marnier, serve while the flame is still on, accompanied with a straw on side plate.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Stinger",
+        "spirit": "Brandy",
+        "price": "",
+        "description": "Classic Spec. After Dinner Cocktail",
+        "ingredients": [
+            "Cognac",
+            "Cr\u00e9me liqueur"
+        ],
+        "spec_recipe": [
+            "5 cl Cognac",
+            "2 cl Cr\u00e9me liqueur"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Stir in mixing glass with ice cubes. Strain into a cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Golden Dream",
+        "spirit": "Other",
+        "price": "",
+        "description": "Classic Spec. After Dinner Cocktail",
+        "ingredients": [
+            "Galliano",
+            "Triple Sec",
+            "Orange juice",
+            "Cream"
+        ],
+        "spec_recipe": [
+            "2 cl Galliano",
+            "2 cl Triple Sec",
+            "2 cl Orange juice",
+            "1 cl Cream"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Shake with ice cubes. Strain into chilled cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "God Mother",
+        "spirit": "Vodka",
+        "price": "",
+        "description": "Classic Spec. ",
+        "ingredients": [
+            "Vodka",
+            "DiSaronno"
+        ],
+        "spec_recipe": [
+            "3.5 cl Vodka",
+            "3.5 cl DiSaronno"
+        ],
+        "glassware": "old-fashioned",
+        "garnish": "",
+        "instructions": "Build into old fashioned glass filled with ice cubes. Stir gently.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Spritz Veneziano",
+        "spirit": "Other",
+        "price": "",
+        "description": "Classic Spec. Sparkling Cocktail",
+        "ingredients": [
+            "Prosecco",
+            "Aperol",
+            "Splash of Soda water"
+        ],
+        "spec_recipe": [
+            "6 cl Prosecco",
+            "4 cl Aperol",
+            "Splash of Soda water"
+        ],
+        "glassware": "old-fashioned",
+        "garnish": "Half an orange slice",
+        "instructions": "Build into an old-fashioned glass filled with ice. Top with a splash of soda water.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Bramble",
+        "spirit": "Gin",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "Gin",
+            "Lemon juice",
+            "Syrup",
+            "Blackberry liqueur"
+        ],
+        "spec_recipe": [
+            "4 cl Gin",
+            "1.5 cl Lemon juice",
+            "1 cl Syrup",
+            "1.5 cl Blackberry liqueur"
+        ],
+        "glassware": "old-fashioned",
+        "garnish": "Lemon slice and two blackberries",
+        "instructions": "Build over crushed ice, in a rock glass. Stir, then pour the blackberry liqueur over the top of the drink in a circular fashion.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Alexander",
+        "spirit": "Brandy",
+        "price": "",
+        "description": "Classic Spec. ",
+        "ingredients": [
+            "Cognac",
+            "Cr\u00e9me liqueur",
+            "Cream"
+        ],
+        "spec_recipe": [
+            "3 cl Cognac",
+            "3 cl Cr\u00e9me liqueur",
+            "3 cl Cream"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Shake and strain into a chilled cocktail glass. Sprinkle with fresh ground nutmeg.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Lemon Drop Martini",
+        "spirit": "Vodka",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "Vodka",
+            "Triple Sec",
+            "Lemon juice"
+        ],
+        "spec_recipe": [
+            "2.5 cl Vodka",
+            "2 cl Triple Sec",
+            "1.5 cl Lemon juice"
+        ],
+        "glassware": "martini",
+        "garnish": "Lemon slice",
+        "instructions": "Shake and strain into a chilled cocktail glass rimmed with sugar.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "French Martini",
+        "spirit": "Vodka",
+        "price": "",
+        "description": "Classic Spec. Before Dinner Cocktail",
+        "ingredients": [
+            "Vodka",
+            "Raspberry liqueur",
+            "Pineapple juice"
+        ],
+        "spec_recipe": [
+            "4.5 cl Vodka",
+            "1.5 cl Raspberry liqueur",
+            "1.5 cl Pineapple juice"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Stir in mixing glass with ice cubes. Strain into chilled cocktail glass. Squeeze oil from lemon peel onto the drink.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Black Russian",
+        "spirit": "Vodka",
+        "price": "",
+        "description": "Classic Spec. After Dinner Cocktail",
+        "ingredients": [
+            "Vodka",
+            "Coffee liqueur"
+        ],
+        "spec_recipe": [
+            "5 cl Vodka",
+            "2 cl Coffee liqueur"
+        ],
+        "glassware": "old-fashioned",
+        "garnish": "",
+        "instructions": "Build into old fashioned glass filled with ice cubes. Stir gently. Note: for White Russian, float fresh cream on the top and stir gently.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Bloody Mary",
+        "spirit": "Vodka",
+        "price": "",
+        "description": "Classic Spec. Longdrink",
+        "ingredients": [
+            "Vodka",
+            "Tomato juice",
+            "Lemon juice",
+            "2 to 3 dashes of Worcestershire Sauce",
+            "Tabasco",
+            "Celery salt",
+            "Pepper"
+        ],
+        "spec_recipe": [
+            "4.5 cl Vodka",
+            "9 cl Tomato juice",
+            "1.5 cl Lemon juice",
+            "2 to 3 dashes of Worcestershire Sauce",
+            "Tabasco",
+            "Celery salt",
+            "Pepper"
+        ],
+        "glassware": "highball",
+        "garnish": "Celery and optionally lemon wedge",
+        "instructions": "Stir gently, pour all ingredients into highball glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Mai-tai",
+        "spirit": "Rum",
+        "price": "",
+        "description": "Classic Spec. Longdrink",
+        "ingredients": [
+            "White rum",
+            "Dark rum",
+            "Triple Sec",
+            "Syrup",
+            "Lime juice"
+        ],
+        "spec_recipe": [
+            "4 cl White rum",
+            "2 cl Dark rum",
+            "1.5 cl Triple Sec",
+            "1.5 cl Syrup",
+            "1 cl Lime juice"
+        ],
+        "glassware": "highball",
+        "garnish": "Pineapple spear, mint leaves and lime wedge",
+        "instructions": "Shake and strain into highball glass. Serve with straw.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Barracuda",
+        "spirit": "Rum",
+        "price": "",
+        "description": "Classic Spec. Sparkling Cocktail",
+        "ingredients": [
+            "Dark rum",
+            "Galliano",
+            "Pineapple juice",
+            "1 dash Lime juice",
+            "Top with Prosecco"
+        ],
+        "spec_recipe": [
+            "4.5 cl Dark rum",
+            "1.5 cl Galliano",
+            "6 cl Pineapple juice",
+            "1 dash Lime juice",
+            "Top with Prosecco"
+        ],
+        "glassware": "margarita",
+        "garnish": "",
+        "instructions": "",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Sex on the Beach",
+        "spirit": "Vodka",
+        "price": "",
+        "description": "Classic Spec. Longdrink",
+        "ingredients": [
+            "Vodka",
+            "Peach schnapps",
+            "Cranberry juice",
+            "Orange juice"
+        ],
+        "spec_recipe": [
+            "4 cl Vodka",
+            "2 cl Peach schnapps",
+            "4 cl Cranberry juice",
+            "4 cl Orange juice"
+        ],
+        "glassware": "highball",
+        "garnish": "Orange slice",
+        "instructions": "Build all ingredients in a highball glass filled with ice.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Monkey Gland",
+        "spirit": "Gin",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "Gin",
+            "Orange juice",
+            "2 drops Absinthe",
+            "2 drops Grenadine"
+        ],
+        "spec_recipe": [
+            "5 cl Gin",
+            "3 cl Orange juice",
+            "2 drops Absinthe",
+            "2 drops Grenadine"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Shake and strain into a chilled cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Derby",
+        "spirit": "Gin",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "Gin",
+            "2 drops Peach Bitters",
+            "2 Fresh mint leaves"
+        ],
+        "spec_recipe": [
+            "6 cl Gin",
+            "2 drops Peach Bitters",
+            "2 Fresh mint leaves"
+        ],
+        "glassware": "martini",
+        "garnish": "Mint leaves",
+        "instructions": "Stir in mixing glass with ice cubes. Strain into a cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Sidecar",
+        "spirit": "Brandy",
+        "price": "",
+        "description": "Classic Spec. All Day Cocktail",
+        "ingredients": [
+            "Cognac",
+            "Triple Sec",
+            "Lemon juice"
+        ],
+        "spec_recipe": [
+            "5 cl Cognac",
+            "2 cl Triple Sec",
+            "2 cl Lemon juice"
+        ],
+        "glassware": "martini",
+        "garnish": "",
+        "instructions": "Shake with ice cubes. Strain into cocktail glass.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Irish Coffee",
+        "spirit": "Whiskey",
+        "price": "",
+        "description": "Classic Spec. Hot Drink",
+        "ingredients": [
+            "Whiskey",
+            "Hot coffee",
+            "Cream",
+            "1 teaspoon of brown sugar"
+        ],
+        "spec_recipe": [
+            "4 cl Whiskey",
+            "9 cl Hot coffee",
+            "3 cl Cream",
+            "1 teaspoon of brown sugar"
+        ],
+        "glassware": "hot-drink",
+        "garnish": "",
+        "instructions": "Warm the Irish whiskey over a burner. Pour into the glass (for hot drink) hot coffee, and add a teaspoon of sugar. Float Cream on top.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
+    },
+    {
+        "name": "Sazerac",
+        "spirit": "Brandy",
+        "price": "",
+        "description": "Classic Spec. After Dinner Cocktail",
+        "ingredients": [
+            "Cognac",
+            "Absinthe",
+            "1 sugar cube",
+            "2 dashes Peychaud\u2019s bitters"
+        ],
+        "spec_recipe": [
+            "5 cl Cognac",
+            "1 cl Absinthe",
+            "1 sugar cube",
+            "2 dashes Peychaud\u2019s bitters"
+        ],
+        "glassware": "old-fashioned",
+        "garnish": "Lemon twist",
+        "instructions": "Rinse a chilled old-fashioned glass with the absinthe, add crushed ice and set it aside. Stir the remaining ingredients over ice and set it aside. Discard the ice and any excess absinthe from the prepared glass, and strain the drink into the glass. Note: The original recipe changed after the American Civil War, rye whiskey substituted cognac as it became hard to obtain.",
+        "image_path": "",
+        "is_classic": true,
+        "is_cotw": false,
+        "is_craft": false,
+        "is_well": false
     }
 ]
