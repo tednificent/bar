@@ -393,6 +393,107 @@ def backfill_details_from_json():
     except Exception as e:
         print(f"Backfill failed: {e}")
 
+# --- Admin Tools (Copy and Paste to bottom of db_utils.py) ---
+
+def delete_recipe(recipe_id):
+    conn = get_db_connection()
+    c = conn.cursor()
+    try:
+        # Delete ingredients first (foreign key hygiene)
+        c.execute("DELETE FROM recipe_ingredients WHERE recipe_id = ?", (recipe_id,))
+        # Delete the recipe
+        c.execute("DELETE FROM recipes WHERE id = ?", (recipe_id,))
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error deleting recipe: {e}")
+        return False
+    finally:
+        conn.close()
+
+def update_recipe_category(recipe_id, new_category):
+    conn = get_db_connection()
+    c = conn.cursor()
+    try:
+        c.execute("UPDATE recipes SET category = ? WHERE id = ?", (new_category, recipe_id))
+        conn.commit()
+    finally:
+        conn.close()
+
+def update_recipe_details(recipe_id, description, image_url, price, spirit):
+    conn = get_db_connection()
+    c = conn.cursor()
+    try:
+        c.execute("""
+            UPDATE recipes 
+            SET description = ?, image_url = ?, price = ?, spirit = ?
+            WHERE id = ?
+        """, (description, image_url, price, spirit, recipe_id))
+        conn.commit()
+    finally:
+        conn.close()
+
+def update_whole_recipe(recipe_id, name, category, description, price, image_url, spirit, ingredients_text):
+    """
+    Updates the recipe metadata AND replaces ingredients.
+    ingredients_text should be a string (from text area).
+    """
+    conn = get_db_connection()
+    c = conn.cursor()
+    try:
+        # 1. Update main recipe fields
+        c.execute("""
+            UPDATE recipes 
+            SET name = ?, category = ?, description = ?, price = ?, image_url = ?, spirit = ?
+            WHERE id = ?
+        """, (name, category, description, price, image_url, spirit, recipe_id))
+
+        # 2. Update ingredients (simplest way: delete all old, add all new)
+        # Only do this if ingredients_text is provided
+        if ingredients_text:
+            c.execute("DELETE FROM recipe_ingredients WHERE recipe_id = ?", (recipe_id,))
+            
+            # Split text by newlines to get list of ingredients
+            lines = [line.strip() for line in ingredients_text.split('\n') if line.strip()]
+            for line in lines:
+                c.execute("INSERT INTO recipe_ingredients (recipe_id, ingredient) VALUES (?, ?)", 
+                          (recipe_id, line))
+        
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error updating recipe: {e}")
+        return False
+    finally:
+        conn.close()
+
+def create_new_recipe(name, category, description, price, image_url, spirit, ingredients_text):
+    conn = get_db_connection()
+    c = conn.cursor()
+    try:
+        # 1. Insert into recipes
+        c.execute("""
+            INSERT INTO recipes (name, category, description, price, image_url, spirit)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (name, category, description, price, image_url, spirit))
+        
+        new_id = c.lastrowid
+        
+        # 2. Insert ingredients
+        if ingredients_text:
+            lines = [line.strip() for line in ingredients_text.split('\n') if line.strip()]
+            for line in lines:
+                c.execute("INSERT INTO recipe_ingredients (recipe_id, ingredient) VALUES (?, ?)", 
+                          (new_id, line))
+        
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error creating recipe: {e}")
+        return False
+    finally:
+        conn.close()
+
 # Run init if this file is run directly
 if __name__ == "__main__":
     init_db()
