@@ -85,7 +85,7 @@ def get_all_recipes():
     
     recipes = []
     try:
-        c.execute("SELECT * FROM recipes")
+        c.execute("SELECT id, name, instructions, glassware, is_favorite, category, description, image_url, price, spirit FROM recipes")
         rows = c.fetchall()
         
         for row in rows:
@@ -117,8 +117,18 @@ def save_new_recipe(recipe_data):
             return False # Duplicate
 
         # 1. Insert Recipe
-        c.execute("INSERT INTO recipes (name, instructions) VALUES (?, ?)", 
-                  (recipe_data.get('name'), recipe_data.get('instructions', '')))
+        c.execute("""
+            INSERT INTO recipes (name, instructions, category, description, price, image_url, spirit) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            recipe_data.get('name'), 
+            recipe_data.get('instructions', ''), 
+            recipe_data.get('category', 'Classics'),
+            recipe_data.get('description', ''),
+            recipe_data.get('price', ''),
+            recipe_data.get('image_url', ''),
+            recipe_data.get('spirit', '')
+        ))
         recipe_id = c.lastrowid
         
         # 2. Insert Ingredients
@@ -137,6 +147,7 @@ def save_new_recipe(recipe_data):
         return False
     finally:
         conn.close()
+
 # --- NEW FUNCTION IN db_utils.py ---
 def add_category_column():
     """Adds the category column if it doesn't exist."""
@@ -157,10 +168,235 @@ def add_category_column():
         conn.close()
 
 # Update the execution block at the very bottom of db_utils.py
-if __name__ == "__main__":
-    init_db() 
-    add_category_column() # <-- Add this line here
-    migrate_json_to_db()
+
+# --- 5. NEW: ADMIN FUNCTIONS ---
+
+def delete_recipe(recipe_id):
+    """Deletes a recipe and its ingredients."""
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    try:
+        c.execute("DELETE FROM recipe_ingredients WHERE recipe_id = ?", (recipe_id,))
+        c.execute("DELETE FROM recipes WHERE id = ?", (recipe_id,))
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error deleting recipe: {e}")
+        return False
+    finally:
+        conn.close()
+
+def update_recipe_category(recipe_id, new_category):
+    """Updates the category for a specific recipe."""
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    try:
+        c.execute("UPDATE recipes SET category = ? WHERE id = ?", (new_category, recipe_id))
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error updating category: {e}")
+        return False
+    finally:
+        conn.close()
+
+def update_whole_recipe(recipe_id, data):
+    """Updates ALL fields of a recipe, including ingredients."""
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    try:
+        # 1. Update Core Fields
+        c.execute("""
+            UPDATE recipes 
+            SET name=?, category=?, description=?, price=?, image_url=?, instructions=?, spirit=?
+            WHERE id=?
+        """, (data['name'], data['category'], data['description'], 
+              data['price'], data['image_url'], data['instructions'], data.get('spirit', ''), recipe_id))
+        
+        # 2. Update Ingredients (Delete Old -> Insert New)
+        # This is easier than trying to diff them
+        c.execute("DELETE FROM recipe_ingredients WHERE recipe_id=?", (recipe_id,))
+        
+        for spec in data.get('specs', []):
+            if not spec.strip(): continue # Skip empty lines
+            amt, unit, ing = parse_spec_line(spec)
+            c.execute("""
+                INSERT INTO recipe_ingredients (recipe_id, amount, unit, ingredient, raw_text)
+                VALUES (?, ?, ?, ?, ?)
+            """, (recipe_id, amt, unit, ing, spec))
+            
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error updating whole recipe: {e}")
+        return False
+    finally:
+        conn.close()
+
+def migrate_json_to_db():
+    """Reads menu.json and migrates to DB if not present."""
+    import json
+    
+    if not os.path.exists("menu.json"):
+        print("No menu.json found to migrate.")
+        return
+
+    print("Starting migration...")
+    try:
+        with open("menu.json", "r") as f:
+            data = json.load(f)
+            
+        conn = sqlite3.connect(DB_NAME)
+        c = conn.cursor()
+        
+        count = 0
+        for item in data:
+            # Check if exists
+            c.execute("SELECT id FROM recipes WHERE name = ?", (item.get('name'),))
+            if c.fetchone():
+                continue
+                
+            # Auto-Categorization Logic
+            category = 'Classics' # Default
+            spirit = item.get('spirit', '')
+            beer_type = item.get('beer_type', '')
+            
+            if item.get('is_cotw'):
+                category = 'Featured Sips'
+            elif spirit == 'Beer' or beer_type:
+                category = 'Beer'
+            elif spirit in ['Red Wine', 'White Wine'] or 'Wine' in spirit:
+                category = 'Wine'
+            elif spirit == 'Non-Alcoholic':
+                category = 'Zero Proof'
+            elif item.get('is_craft'):
+                category = 'Craft Cocktails'
+            elif item.get('is_classic'):
+                category = 'Classics'
+            elif spirit in ['Tequila', 'Vodka', 'Gin', 'Rum', 'Whiskey', 'Bourbon']:
+                category = 'Liquors' # Assuming this maps to Liquors, or we can put cocktails here? 
+                # Actually user list had 'Liquors' separate. Let's aim for 'Craft Cocktails' or 'Classics' mostly for cocktails.
+                # If it's just a raw spirit entry (no ingredients?), maybe Liquors?
+                # For now let's stick to the list: 'Featured Sips', 'Craft Cocktails', 'Classics', 'Beer', 'Wine', 'Liquors', 'Zero Proof'
+                pass
+            
+            # Insert Recipe
+            c.execute("INSERT INTO recipes (name, instructions, category) VALUES (?, ?, ?)", 
+                      (item.get('name'), item.get('instructions', ''), category))
+            recipe_id = c.lastrowid
+            
+            # Insert Specs (Use spec_recipe from JSON)
+            specs = item.get('spec_recipe', [])
+            for spec in specs:
+                 # Clean up the spec string if needed
+                 if isinstance(spec, str):
+                     amt, unit, ing = parse_spec_line(spec)
+                     c.execute("INSERT INTO recipe_ingredients (recipe_id, amount, unit, ingredient, raw_text) VALUES (?, ?, ?, ?, ?)",
+                               (recipe_id, amt, unit, ing, spec))
+
+            count += 1
+            
+        conn.commit()
+        conn.close()
+        print(f"Migration complete. Imported {count} new recipes.")
+        
+    except Exception as e:
+        print(f"Migration failed: {e}")
+
+# --- 6. NEW: DETAILS COLUMNS ---
+def add_details_columns():
+    """Adds description, image_url, price, and spirit columns if they don't exist."""
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    columns = [
+        ("description", "TEXT"),
+        ("image_url", "TEXT"),
+        ("price", "TEXT"),
+        ("spirit", "TEXT") # New Spirit Column for filtering
+    ]
+    try:
+        for col_name, col_type in columns:
+            try:
+                c.execute(f"ALTER TABLE recipes ADD COLUMN {col_name} {col_type}")
+                print(f"Added column: {col_name}")
+            except sqlite3.OperationalError:
+                pass # Already exists
+        conn.commit()
+    except Exception as e:
+        print(f"Error adding detail columns: {e}")
+    finally:
+        conn.close()
+
+def update_recipe_details(recipe_id, description, price, image_url):
+    """Updates the details for a specific recipe."""
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    try:
+        c.execute("""
+            UPDATE recipes 
+            SET description = ?, price = ?, image_url = ? 
+            WHERE id = ?
+        """, (description, price, image_url, recipe_id))
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error updating details: {e}")
+        return False
+    finally:
+        conn.close()
+
+def backfill_details_from_json():
+    """Updates existing DB records with data from menu.json."""
+    import json
+    if not os.path.exists("menu.json"): return
+
+    print("Backfilling details from JSON...")
+    try:
+        with open("menu.json", "r") as f:
+            data = json.load(f)
+            
+        conn = sqlite3.connect(DB_NAME)
+        c = conn.cursor()
+        
+        count = 0
+        for item in data:
+            # Map JSON fields
+            desc = item.get('description', '')
+            img = item.get('image_path', '')
+            spirit = item.get('spirit', '')
+            
+            # Handle Price
+            price_val = item.get('price', 0.0)
+            price_str = ""
+            try:
+                if isinstance(price_val, (int, float)) and price_val > 0:
+                    price_str = f"${price_val:.0f}"
+                elif isinstance(price_val, str):
+                     price_str = price_val
+            except Exception:
+                price_str = ""
+            
+            # Update matching recipe
+            c.execute("""
+                UPDATE recipes 
+                SET description = ?, image_url = ?, price = ?, spirit = ?
+                WHERE name = ?
+            """, (desc, img, price_str, spirit, item.get('name')))
+            
+            if c.rowcount > 0:
+                count += 1
+                
+        conn.commit()
+        conn.close()
+        print(f"Backfill complete. Updated {count} recipes.")
+        
+    except Exception as e:
+        print(f"Backfill failed: {e}")
+
 # Run init if this file is run directly
 if __name__ == "__main__":
     init_db()
+    add_category_column() 
+    add_details_columns() # <--- NEW
+    migrate_json_to_db()
+    backfill_details_from_json() # <--- NEW
