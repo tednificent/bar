@@ -9,8 +9,34 @@ from db_utils import get_all_recipes, save_new_recipe, convert_ml_to_oz
 # NEW: Import admin functions
 from db_utils import delete_recipe, update_recipe_category, update_recipe_details, update_whole_recipe
 
-# --- 1. APP CONFIGURATION ---
+# --- 1. APP CONFIGURATION & CSS ---
 st.set_page_config(page_title="My Digital Bar", layout="wide")
+
+st.markdown("""
+<style>
+    /* Uniform Cocktail Image */
+    /* Enforce 200px height on images inside Expanders (Cocktail Cards) */
+    div[data-testid="stExpander"] img {
+        height: 200px !important;
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+        border-radius: 10px;
+    }
+    /* Fallback Placeholder */
+    .placeholder-container {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f2f6;
+        border-radius: 10px;
+        font-size: 5rem;
+        margin-bottom: 1rem;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # --- 2. SESSION STATE SETUP ---
 if 'bartender_mode' not in st.session_state:
@@ -122,9 +148,27 @@ st.title("🍸 The Home Bar")
 # A. Load Active Recipes from Database
 active_recipes = get_all_recipes()
 
-# B. Display Your Bar (The Menu)
+# B. Global Search Bar
+search_query = st.text_input("🔍 Search Cocktails...", placeholder="Name, Spirit, or Ingredient").lower().strip()
+
+if search_query:
+    filtered_recipes = []
+    for r in active_recipes:
+        # Search criteria: Name, Spirit, or any Spec line
+        in_name = search_query in r['name'].lower()
+        in_spirit = search_query in str(r.get('spirit', '')).lower()
+        in_specs = any(search_query in s.lower() for s in r.get('specs', []))
+        
+        if in_name or in_spirit or in_specs:
+            filtered_recipes.append(r)
+    active_recipes = filtered_recipes
+
+# C. Display Your Bar (The Menu)
 if not active_recipes:
-    st.info("Your bar is empty! Switch to Bartender Mode to import recipes.")
+    if search_query:
+        st.warning("No cocktails found matching your search.")
+    else:
+        st.info("Your bar is empty! Switch to Bartender Mode to import recipes.")
 else:
     # Categories
     card_categories = ['Featured Sips', 'Craft Cocktails', 'Classics', 'Zero Proof']
@@ -144,210 +188,202 @@ else:
         recipes = grouped_recipes[cat]
         if not recipes: continue
             
-        st.header(cat)
+        # Auto-Expand if Searching, otherwise only Featured Sips
+        is_expanded = bool(search_query) or (cat == 'Featured Sips')
         
-        # Grid Display
-        cols = st.columns(3) 
-        for i, recipe in enumerate(recipes):
-            with cols[i % 3]:
-                # NEW: Collapsible Card Logic
-                # The Header is the Expander Label
-                with st.expander(f"**{recipe['name']}**", expanded=False):
-                    
-                    # Image
-                    if recipe.get('image_url'):
-                        try:
-                            st.image(recipe['image_url'], width=300)
-                        except:
-                            pass 
-
-                    # Description
-                    if recipe.get('description'):
-                        st.caption(f"*{recipe['description']}*")
-                    
-                    # Price
-                    if recipe.get('price'):
-                         st.write(f"**{recipe['price']}**")
-
-                    # Ingredients / Specs (Always show in expander for cards? 
-                    # Prompt says "Guest can click to see photo and details".
-                    # Details usually implies specs/ingredients for guests? 
-                    # Original prompt said guest mode hides specs. 
-                    # User: "Inside the expander, place ... Ingredients/Specs." 
-                    # User didn't restrict this to bartender only in this specific request.
-                    # I will assuming transparency is desired inside the click, or I should stick to 'Specs only if Bartender'.
-                    # "This ensures the menu is clean... but guests can click to see... details." 
-                    # I'll show ingredients list (specs) to everyone inside the expander, as requested.)
-                    
-                    st.markdown("#### Ingredients")
-                    if recipe.get('specs'):
-                        for line in recipe['specs']:
-                            st.markdown(f"- {line}")
-                    
-                    # Instructions (Still maybe bartender only? Or everyone? 
-                    # Let's keep instructions separate or at bottom. 
-                    # Prompt said "Inside expander... Image, Description, and Ingredients/Specs".
-                    # It didn't mention instructions. I'll hide instructions for guests to keep "Privacy" logic akin to before.)
-                    
-                    if st.session_state.bartender_mode:
-                        st.markdown("---")
-                        st.markdown("**Instructions:**")
-                        st.write(recipe.get('instructions', "No instructions."))
-                    
-                    # Admin Controls inside
-                    if st.session_state.bartender_mode:
-                        st.markdown("---")
-                        c1, c2 = st.columns(2)
+        with st.expander(f"**{cat}**", expanded=is_expanded):
+            
+            # BARTENDER MODE: Condensed List View
+            if st.session_state.bartender_mode:
+                for r in recipes:
+                    with st.container(border=True):
+                        c1, c2 = st.columns([0.85, 0.15])
                         with c1:
-                            if st.button("Edit", key=f"edit_{recipe['id']}"):
-                                edit_recipe_dialog(recipe)
+                            st.markdown(f"### {r['name']}")
+                            # Specs
+                            if r.get('specs'):
+                                st.markdown("**Specs:**")
+                                for s in r['specs']:
+                                    st.markdown(f"- {s}")
+                            # Instructions
+                            if r.get('instructions'):
+                                st.markdown(f"**Method:** {r['instructions']}")
+                        
                         with c2:
-                            if st.button("Delete", key=f"del_{recipe['id']}"):
-                                if delete_recipe(recipe['id']):
-                                    st.rerun()
+                            st.write("") # Spacer
+                            if st.button("Edit", key=f"ed_{r['id']}"): edit_recipe_dialog(r)
+                            if st.button("Del", key=f"del_{r['id']}"): 
+                                delete_recipe(r['id'])
+                                st.rerun()
 
+            # GUEST MODE: Sales Card View
+            else:
+                cols = st.columns(3) 
+                for i, recipe in enumerate(recipes):
+                    with cols[i % 3]:
+                        with st.container(border=True):
+                            # Image Logic (Try/Except + st.image)
+                            if recipe.get('image_url'):
+                                try:
+                                    st.image(recipe['image_url'], use_container_width=True)
+                                except:
+                                    pass # Hide if broken
+
+                            # Name & Desc
+                            st.markdown(f"### {recipe['name']}")
+                            
+                            if recipe.get('description'):
+                                st.caption(f"*{recipe['description']}*")
+                            
+                            if recipe.get('price'):
+                                 st.write(f"**{recipe['price']}**")
+                            
+                            # HIDDEN FOR GUESTS: Ingredients & Instructions
 
     # --- PART 2: LIST VIEW (Beer/Wine - Tight) ---
-    st.markdown("---")
+    # --- PART 2: LIST VIEW (Beer/Wine - Tight) ---
     
     for cat in list_categories:
         recipes = grouped_recipes[cat]
         if not recipes: continue
         
-        st.header(cat)
+        # Wrap category in Expander
+        # Auto-Expand if Searching, otherwise default False (Closed)
+        is_list_expanded = bool(search_query)
+        with st.expander(f"**{cat}**", expanded=is_list_expanded):
         
-        # WINE SUB-GROUPING
-        if cat == 'Wine':
-            # Predefined Sub-Groups
-            wine_subgroups = ['House Wine', 'Red Wine', 'White Wine', 'Bubbles']
-            # We sort recipes into these buckets
-            wines_by_type = {sub: [] for sub in wine_subgroups}
-            others = []
-            
-            for r in recipes:
-                # Filter by Spirit field (populated by migration or manually)
-                # Fallback to checking name if spirit is empty?
-                s = r.get('spirit', '')
-                if s in wine_subgroups:
-                    wines_by_type[s].append(r)
-                elif 'Red' in s: wines_by_type['Red Wine'].append(r)
-                elif 'White' in s: wines_by_type['White Wine'].append(r)
-                elif 'Sparkling' in s or 'Bubbles' in s or 'Champagne' in s: wines_by_type['Bubbles'].append(r)
-                else:
-                    others.append(r) # Fallback
-            
-            # Display Subgroups
-            for sub in wine_subgroups:
-                if wines_by_type[sub]:
-                    st.subheader(sub)
-                    for r in wines_by_type[sub]:
-                        # Tight MD Block
+            # WINE SUB-GROUPING
+            if cat == 'Wine':
+                # Predefined Sub-Groups
+                wine_subgroups = ['House Wine', 'Red Wine', 'White Wine', 'Bubbles']
+                # We sort recipes into these buckets
+                wines_by_type = {sub: [] for sub in wine_subgroups}
+                others = []
+                
+                for r in recipes:
+                    # Filter by Spirit field (populated by migration or manually)
+                    # Fallback to checking name if spirit is empty?
+                    s = r.get('spirit', '')
+                    if s in wine_subgroups:
+                        wines_by_type[s].append(r)
+                    elif 'Red' in s: wines_by_type['Red Wine'].append(r)
+                    elif 'White' in s: wines_by_type['White Wine'].append(r)
+                    elif 'Sparkling' in s or 'Bubbles' in s or 'Champagne' in s: wines_by_type['Bubbles'].append(r)
+                    else:
+                        others.append(r) # Fallback
+                
+                # Display Subgroups
+                for sub in wine_subgroups:
+                    if wines_by_type[sub]:
+                        st.subheader(sub)
+                        for r in wines_by_type[sub]:
+                            # Tight MD Block
+                            price_span = f"<b>{r['price']}</b>" if r.get('price') else ""
+                            desc_span = f"<i>{r['description']}</i>" if r.get('description') else ""
+                            row_html = f"""
+                            <div style="line-height:1.4; margin-bottom: 4px;">
+                                <b>{r['name']}</b> &nbsp;|&nbsp; {desc_span} &nbsp;|&nbsp; {price_span}
+                            </div>
+                            """
+                            col_txt, col_btn = st.columns([0.9, 0.1])
+                            with col_txt:
+                                st.markdown(row_html, unsafe_allow_html=True)
+                            with col_btn:
+                                if st.session_state.bartender_mode:
+                                    with st.popover("⋮"):
+                                        if st.button("Edit", key=f"ed_w_{r['id']}"): edit_recipe_dialog(r)
+                                        if st.button("Del", key=f"dl_w_{r['id']}"): 
+                                            delete_recipe(r['id'])
+                                            st.rerun()
+                
+                # Display Others
+                if others:
+                    st.subheader("Other Wines")
+                    for r in others:
+                         # Same HTML block logic... (Refactor potential but inline is fine for now)
                         price_span = f"<b>{r['price']}</b>" if r.get('price') else ""
                         desc_span = f"<i>{r['description']}</i>" if r.get('description') else ""
-                        row_html = f"""
-                        <div style="line-height:1.4; margin-bottom: 4px;">
-                            <b>{r['name']}</b> &nbsp;|&nbsp; {desc_span} &nbsp;|&nbsp; {price_span}
-                        </div>
-                        """
+                        row_html = f"""<div style="line-height:1.4; margin-bottom: 4px;"><b>{r['name']}</b> | {desc_span} | {price_span}</div>"""
                         col_txt, col_btn = st.columns([0.9, 0.1])
-                        with col_txt:
-                            st.markdown(row_html, unsafe_allow_html=True)
+                        with col_txt: st.markdown(row_html, unsafe_allow_html=True)
                         with col_btn:
                             if st.session_state.bartender_mode:
                                 with st.popover("⋮"):
-                                    if st.button("Edit", key=f"ed_w_{r['id']}"): edit_recipe_dialog(r)
-                                    if st.button("Del", key=f"dl_w_{r['id']}"): 
-                                        delete_recipe(r['id'])
-                                        st.rerun()
-            
-            # Display Others
-            if others:
-                st.subheader("Other Wines")
-                for r in others:
-                     # Same HTML block logic... (Refactor potential but inline is fine for now)
-                    price_span = f"<b>{r['price']}</b>" if r.get('price') else ""
-                    desc_span = f"<i>{r['description']}</i>" if r.get('description') else ""
-                    row_html = f"""<div style="line-height:1.4; margin-bottom: 4px;"><b>{r['name']}</b> | {desc_span} | {price_span}</div>"""
-                    col_txt, col_btn = st.columns([0.9, 0.1])
-                    with col_txt: st.markdown(row_html, unsafe_allow_html=True)
-                    with col_btn:
-                        if st.session_state.bartender_mode:
-                            with st.popover("⋮"):
-                                if st.button("Edit", key=f"ed_wo_{r['id']}"): edit_recipe_dialog(r)
-                                if st.button("Del", key=f"dl_wo_{r['id']}"): 
-                                    delete_recipe(r['id']); st.rerun()
+                                    if st.button("Edit", key=f"ed_wo_{r['id']}"): edit_recipe_dialog(r)
+                                    if st.button("Del", key=f"dl_wo_{r['id']}"): 
+                                        delete_recipe(r['id']); st.rerun()
 
-        # LIQUORS (Grouped)
-        elif cat == 'Liquors':
-            # Sub-Groups
-            wells = []
-            others = []
-            
-            for r in recipes:
-                s = r.get('spirit', '').lower()
-                if 'house' in s:
-                    wells.append(r)
-                else:
-                    others.append(r)
-            
-            # 1. Premium Wells
-            if wells:
-                st.subheader("Premium Wells")
-                for r in wells:
-                    price_span = f"<b>{r['price']}</b>" if r.get('price') else ""
-                    desc_span = f"<i>{r['description']}</i>" if r.get('description') else ""
-                    row_html = f"""<div style="line-height:1.4; margin-bottom: 4px;"><b>{r['name']}</b> | {desc_span} | {price_span}</div>"""
-                    
-                    col_txt, col_btn = st.columns([0.9, 0.1])
-                    with col_txt: st.markdown(row_html, unsafe_allow_html=True)
-                    with col_btn:
-                        if st.session_state.bartender_mode:
-                            with st.popover("⋮"):
-                                if st.button("Edit", key=f"ed_l_{r['id']}"): edit_recipe_dialog(r)
-                                if st.button("Del", key=f"dl_l_{r['id']}"): 
-                                    delete_recipe(r['id']); st.rerun()
-
-            # 2. Premium Selections (Others)
-            if others:
-                st.subheader("Premium Selections")
-                for r in others:
-                    price_span = f"<b>{r['price']}</b>" if r.get('price') else ""
-                    desc_span = f"<i>{r['description']}</i>" if r.get('description') else ""
-                    row_html = f"""<div style="line-height:1.4; margin-bottom: 4px;"><b>{r['name']}</b> | {desc_span} | {price_span}</div>"""
-                    
-                    col_txt, col_btn = st.columns([0.9, 0.1])
-                    with col_txt: st.markdown(row_html, unsafe_allow_html=True)
-                    with col_btn:
-                        if st.session_state.bartender_mode:
-                            with st.popover("⋮"):
-                                if st.button("Edit", key=f"ed_lo_{r['id']}"): edit_recipe_dialog(r)
-                                if st.button("Del", key=f"dl_lo_{r['id']}"): 
-                                    delete_recipe(r['id']); st.rerun()
-
-        # BEER (Simple List)
-        else:
-            if cat == 'Beer': st.caption("*Bottle | Draft*")
-            
-            for r in recipes:
-                price_span = f"<b>{r['price']}</b>" if r.get('price') else ""
-                desc_span = f"<i>{r['description']}</i>" if r.get('description') else ""
+            # LIQUORS (Grouped)
+            elif cat == 'Liquors':
+                # Sub-Groups
+                wells = []
+                others = []
                 
-                # HTML Block for tight spacing
-                row_html = f"""
-                <div style="line-height:1.4; margin-bottom: 4px;">
-                    <b>{r['name']}</b> &nbsp;|&nbsp; {desc_span} &nbsp;|&nbsp; {price_span}
-                </div>
-                """
+                for r in recipes:
+                    s = r.get('spirit', '').lower()
+                    if 'house' in s:
+                        wells.append(r)
+                    else:
+                        others.append(r)
                 
-                c1, c2 = st.columns([0.9, 0.1])
-                with c1:
-                    st.markdown(row_html, unsafe_allow_html=True)
-                with c2:
-                    if st.session_state.bartender_mode:
-                         with st.popover("⋮"):
-                              if st.button("Edit", key=f"ed_b_{r['id']}"): edit_recipe_dialog(r)
-                              if st.button("Del", key=f"dl_b_{r['id']}"): 
-                                    delete_recipe(r['id']); st.rerun()
+                # 1. Premium Wells
+                if wells:
+                    st.subheader("Premium Wells")
+                    for r in wells:
+                        price_span = f"<b>{r['price']}</b>" if r.get('price') else ""
+                        desc_span = f"<i>{r['description']}</i>" if r.get('description') else ""
+                        row_html = f"""<div style="line-height:1.4; margin-bottom: 4px;"><b>{r['name']}</b> | {desc_span} | {price_span}</div>"""
+                        
+                        col_txt, col_btn = st.columns([0.9, 0.1])
+                        with col_txt: st.markdown(row_html, unsafe_allow_html=True)
+                        with col_btn:
+                            if st.session_state.bartender_mode:
+                                with st.popover("⋮"):
+                                    if st.button("Edit", key=f"ed_l_{r['id']}"): edit_recipe_dialog(r)
+                                    if st.button("Del", key=f"dl_l_{r['id']}"): 
+                                        delete_recipe(r['id']); st.rerun()
+
+                # 2. Premium Selections (Others)
+                if others:
+                    st.subheader("Premium Selections")
+                    for r in others:
+                        price_span = f"<b>{r['price']}</b>" if r.get('price') else ""
+                        desc_span = f"<i>{r['description']}</i>" if r.get('description') else ""
+                        row_html = f"""<div style="line-height:1.4; margin-bottom: 4px;"><b>{r['name']}</b> | {desc_span} | {price_span}</div>"""
+                        
+                        col_txt, col_btn = st.columns([0.9, 0.1])
+                        with col_txt: st.markdown(row_html, unsafe_allow_html=True)
+                        with col_btn:
+                            if st.session_state.bartender_mode:
+                                with st.popover("⋮"):
+                                    if st.button("Edit", key=f"ed_lo_{r['id']}"): edit_recipe_dialog(r)
+                                    if st.button("Del", key=f"dl_lo_{r['id']}"): 
+                                        delete_recipe(r['id']); st.rerun()
+
+            # BEER (Simple List)
+            else:
+                if cat == 'Beer': st.caption("*Bottle | Draft*")
+                
+                for r in recipes:
+                    price_span = f"<b>{r['price']}</b>" if r.get('price') else ""
+                    desc_span = f"<i>{r['description']}</i>" if r.get('description') else ""
+                    
+                    # HTML Block for tight spacing
+                    row_html = f"""
+                    <div style="line-height:1.4; margin-bottom: 4px;">
+                        <b>{r['name']}</b> &nbsp;|&nbsp; {desc_span} &nbsp;|&nbsp; {price_span}
+                    </div>
+                    """
+                    
+                    c1, c2 = st.columns([0.9, 0.1])
+                    with c1:
+                        st.markdown(row_html, unsafe_allow_html=True)
+                    with c2:
+                        if st.session_state.bartender_mode:
+                             with st.popover("⋮"):
+                                  if st.button("Edit", key=f"ed_b_{r['id']}"): edit_recipe_dialog(r)
+                                  if st.button("Del", key=f"dl_b_{r['id']}"): 
+                                        delete_recipe(r['id']); st.rerun()
 
 
 
